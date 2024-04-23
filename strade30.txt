@@ -1,0 +1,2056 @@
+Via Centotrecento
+30.0
+Via del Guasto
+30.0
+Via delle Belle Arti
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via del Guasto
+30.0
+Via delle Belle Arti
+30.0
+Via Mascarella
+30.0
+Via Francesco Rizzoli
+30.0
+Via San Vitale
+30.0
+Piazza della Mercanzia
+30.0
+Strada Maggiore
+30.0
+Via Francesco Rizzoli
+30.0
+Via Francesco Rizzoli
+30.0
+Via San Vitale
+30.0
+Via Castel Tialto
+10.0
+Piazza di Porta Ravegnana
+30.0
+Via Caprarie
+30.0
+Via Castiglione
+30.0
+Strada Maggiore
+30.0
+Via Castiglione
+30.0
+Via Luigi Carlo Farini
+30.0
+Via Castiglione
+30.0
+Vicolo San Damiano
+30.0
+Via Luigi Carlo Farini
+30.0
+Via Castiglione
+30.0
+Via Rialto
+30.0
+Vicolo Posterla
+30.0
+Strada Maggiore
+30.0
+Via Santo Stefano
+30.0
+Via Guerrazzi
+30.0
+Strada Maggiore
+30.0
+Via Begatto
+30.0
+Strada Maggiore
+30.0
+Vicolo Bolognetti
+30.0
+Via dei Bersaglieri
+30.0
+Strada Maggiore
+30.0
+Via Irnerio
+30.0
+Via dei Mille
+30.0
+Via Irnerio
+30.0
+Piazza VIII Agosto
+30.0
+Via Irnerio
+30.0
+Via dei Mille
+30.0
+Via delle Belle Arti
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Guido Reni
+30.0
+Via San Vitale
+30.0
+Via Guido Reni
+30.0
+Vicolo Fantuzzi
+30.0
+Via San Vitale
+30.0
+Via delle Belle Arti
+30.0
+Vicolo De' Facchini
+30.0
+Via Mentana
+30.0
+Via Mentana
+10.0
+Vicolo De' Facchini
+30.0
+Via Guglielmo Oberdan
+30.0
+Via Augusto Righi
+30.0
+Via delle Moline
+10.0
+Via Guglielmo Oberdan
+30.0
+Via Bertiera
+30.0
+Via Augusto Righi
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Capo di Lucca
+30.0
+Via Augusto Righi
+30.0
+Via Mentana
+30.0
+Via Marsala
+30.0
+Via Marsala
+30.0
+Vicolo De' Facchini
+30.0
+Via Zamboni
+30.0
+Largo Respighi
+30.0
+Via Giuseppe Petroni
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Antonio Bertoloni
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via XX ottobre 1944
+30.0
+Via delle Belle Arti
+30.0
+Via delle Belle Arti
+30.0
+Via XX ottobre 1944
+30.0
+Via XX ottobre 1944
+30.0
+Via XX ottobre 1944
+30.0
+Via Attilio Muggia
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Attilio Muggia
+30.0
+Via Attilio Muggia
+30.0
+Via Attilio Muggia
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Mascarella
+30.0
+Piazza di Porta Mascarella
+30.0
+Via Mascarella
+30.0
+Piazza di Porta Mascarella
+30.0
+Piazza di Porta Mascarella
+30.0
+Via Mascarella
+30.0
+Via Quirino Maiorana
+30.0
+Via Francesco Todaro
+30.0
+Via Quirino Maiorana
+30.0
+Via del Borgo di San Pietro
+30.0
+Via del Borgo di San Pietro
+30.0
+Via Filippo Re
+30.0
+Via Filippo Re
+30.0
+Via Filippo Re
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Filippo Re
+30.0
+Via Guglielmo Marconi
+30.0
+Piazza Malpighi
+30.0
+Via Ugo Bassi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via delle Lame
+30.0
+Piazza Malpighi
+30.0
+Piazza Malpighi
+30.0
+Piazza San Francesco
+30.0
+Via Alfredo Testoni
+30.0
+Via Ugo Bassi
+30.0
+Via Ugo Bassi
+30.0
+Via Vallescura
+30.0
+Via Malpertuso
+30.0
+Via Vallescura
+30.0
+Via Vallescura
+30.0
+Via Malpertuso
+30.0
+Via del Cestello
+30.0
+Via Castiglione
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Amedeo Parmeggiani
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Via Guglielmo Marconi
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Via dei Mille
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Via dei Mille
+30.0
+Via Giovanni Amendola
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Via Giovanni Amendola
+30.0
+Via Giovanni Amendola
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Via Don Giovanni Minzoni
+30.0
+Piazza dei Martiri 1943-1945
+30.0
+Via Massimo D'Azeglio
+30.0
+Via delle Tovaglie
+30.0
+Via Massimo D'Azeglio
+30.0
+Via San Procolo
+30.0
+Via delle Tovaglie
+10.0
+Via Paglia
+30.0
+Via Barberia
+30.0
+Via Tagliapietre
+30.0
+Via Collegio di Spagna
+30.0
+Via Barberia
+30.0
+Via Urbana
+30.0
+Via Tagliapietre
+30.0
+Piazza di Porta Saragozza
+30.0
+Via Saragozza
+30.0
+Piazza di Porta Saragozza
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Santa Caterina
+30.0
+Via Malpertuso
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Altaseta
+10.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Senzanome
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Capramozza
+10.0
+Via del Riccio
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Urbana
+30.0
+Via Urbana
+30.0
+Via Saragozza
+30.0
+Via Marsili
+30.0
+Via Marsili
+30.0
+Via Marsili
+30.0
+Via De' Mattuiani
+30.0
+Via Giuseppe Garibaldi
+30.0
+Via Giuseppe Garibaldi
+30.0
+Via Giuseppe Garibaldi
+30.0
+Via Giuseppe Garibaldi
+30.0
+Via Alessandrini
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Alessandrini
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via dell'Indipendenza
+30.0
+Via San Giuseppe
+30.0
+Via dell'Indipendenza
+30.0
+Piazza VIII Agosto
+30.0
+Via San Giuseppe
+30.0
+Via Ciro Menotti
+30.0
+Via Alessandrini
+30.0
+Via Federico Venturini
+30.0
+Piazza VIII Agosto
+30.0
+Via Agamennone Zappoli
+30.0
+Via Alessandrini
+30.0
+Piazza Re Enzo
+30.0
+Via Francesco Rizzoli
+30.0
+Via Francesco Rizzoli
+30.0
+Via Marsala
+30.0
+Via Guglielmo Oberdan
+30.0
+Via Goito
+30.0
+Via Guglielmo Oberdan
+30.0
+Via Guglielmo Oberdan
+30.0
+Via dell'Indipendenza
+30.0
+Via dell'Indipendenza
+30.0
+Via Marsala
+30.0
+Via dell'Indipendenza
+30.0
+Via dell'Indipendenza
+30.0
+Via de' Monari
+30.0
+Via dell'Indipendenza
+30.0
+Via dell'Indipendenza
+30.0
+Via Marsala
+30.0
+Via Piella
+30.0
+Via Marsala
+30.0
+Via Piella
+30.0
+Via Albiroli
+30.0
+Via Marsala
+30.0
+Via Goito
+30.0
+Via Galliera
+30.0
+Via Milazzo
+30.0
+Via Galliera
+30.0
+Via Milazzo
+30.0
+Via Montebello
+30.0
+Via Montebello
+30.0
+Via dei Mille
+30.0
+Via dei Mille
+30.0
+Via Galliera
+30.0
+Via Galliera
+30.0
+Via Galliera
+30.0
+Via Galliera
+30.0
+Via Galliera
+30.0
+Via Volturno
+30.0
+Via Galliera
+30.0
+Via Volturno
+30.0
+Vicolo Quartirolo
+30.0
+Via Galliera
+30.0
+Via Parigi
+30.0
+Via Parigi
+30.0
+Via degli Usberti
+30.0
+Via Mura di Porta Galliera
+30.0
+Viale Angelo Masini
+30.0
+Via Guido Zucchini
+30.0
+Via del Borgo di San Pietro
+30.0
+Via del Borgo di San Pietro
+30.0
+Via del Borgo di San Pietro
+30.0
+Via del Borgo di San Pietro
+30.0
+Via Mura di Porta Galliera
+30.0
+Via del Borgo di San Pietro
+30.0
+Via Giovanni Amendola
+30.0
+Via Giovanni Amendola
+30.0
+Via Giovanni Amendola
+30.0
+Via Milazzo
+30.0
+Viale Pietro Pietramellara
+30.0
+Via Fratelli Rosselli
+30.0
+Via Leonetto Cipriani
+30.0
+Viale Pietro Pietramellara
+30.0
+Via Milazzo
+30.0
+Via Giovanni Amendola
+30.0
+Via Milazzo
+30.0
+Via Giovanni Amendola
+30.0
+Via Antonio Gramsci
+30.0
+Via Milazzo
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via del Porto
+30.0
+Via del Porto
+30.0
+Via Fratelli Rosselli
+30.0
+Via del Porto
+30.0
+Via del Porto
+30.0
+Via Guglielmo Marconi
+30.0
+Via del Porto
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via del Porto
+30.0
+Via Avesella
+30.0
+Via del Porto
+30.0
+Via Avesella
+30.0
+Via Strazzacappe
+30.0
+Via Milazzo
+30.0
+Via Montebello
+30.0
+Via Montebello
+30.0
+Via dei Mille
+30.0
+Via dei Mille
+30.0
+Via dei Mille
+30.0
+Via del Porto
+30.0
+Via delle Lame
+30.0
+Via Padre Francesco Maria Grimaldi
+30.0
+Via delle Lame
+30.0
+Via delle Lame
+30.0
+Via Riva di Reno
+30.0
+Via Riva di Reno
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Riva di Reno
+30.0
+Via Azzo Gardino
+30.0
+Via Riva di Reno
+30.0
+Via Polese
+30.0
+Via Gian Battista Morgagni
+30.0
+Via Riva di Reno
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Riva di Reno
+30.0
+Via Riva di Reno
+30.0
+Via San Carlo
+30.0
+Via Giacomo Leopardi
+30.0
+Via Polese
+30.0
+Via Gian Battista Morgagni
+30.0
+Via San Carlo
+30.0
+Via Guerrazzi
+30.0
+Via San Petronio Vecchio
+30.0
+Via Santo Stefano
+30.0
+Via Santo Stefano
+30.0
+Via Cartoleria
+30.0
+Strada Maggiore
+30.0
+Vicolo Fantuzzi
+30.0
+Strada Maggiore
+30.0
+Via de' Coltelli
+30.0
+Via Albano Sorbelli
+30.0
+Via de' Coltelli
+30.0
+Via Rialto
+30.0
+Via Castellata
+30.0
+Via Dal Luzzo
+30.0
+Via Borgonuovo
+30.0
+Via Santo Stefano
+30.0
+Via Borgonuovo
+30.0
+Via Luigi Carlo Farini
+30.0
+Piazza San Giovanni in Monte
+30.0
+Via Cartoleria
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Capo di Lucca
+30.0
+Via Castiglione
+30.0
+Piazza del Francia
+30.0
+Via Nosadella
+30.0
+Piazza Malpighi
+30.0
+Via Nosadella
+30.0
+Via del Fossato
+30.0
+Piazza Malpighi
+30.0
+Piazza Malpighi
+30.0
+Piazza Malpighi
+30.0
+Via del Pratello
+10.0
+Via del Pratello
+10.0
+Via del Pratello
+10.0
+Via del Pratello
+10.0
+Via del Borghetto
+10.0
+Via del Pratello
+10.0
+Piazza San Francesco
+30.0
+Via del Pratello
+10.0
+Via San Petronio Vecchio
+30.0
+Via San Vitale
+30.0
+Vicolo Broglio
+30.0
+Via San Vitale
+30.0
+Via Benedetto XIV
+30.0
+Piazza San Michele
+30.0
+Via de' Leprosetti
+30.0
+Strada Maggiore
+30.0
+Piazza San Michele
+30.0
+Strada Maggiore
+30.0
+Via Santa
+30.0
+Via San Vitale
+30.0
+Via San Vitale
+30.0
+Via Caldarese
+30.0
+Vicolo San Damiano
+30.0
+Via Luigi Carlo Farini
+30.0
+Piazza Cavour
+30.0
+Via De' Carbonesi
+30.0
+Via Luigi Carlo Farini
+30.0
+Vicolo Gangaiolo
+30.0
+Via Barberia
+30.0
+Via De' Griffoni
+30.0
+Via Barberia
+30.0
+Vicolo Olanda
+30.0
+Via Barberia
+30.0
+Via Portanova
+30.0
+Via Barberia
+30.0
+Piazza Malpighi
+30.0
+Via del Fossato
+30.0
+Via del Fossato
+30.0
+Vicolo Stradellaccio
+30.0
+Via Sant'Isaia
+30.0
+Via Frassinago
+30.0
+Via Sant'Isaia
+30.0
+Via Frassinago
+30.0
+Via della Rondine
+30.0
+Via Frassinago
+30.0
+Via della Rondine
+30.0
+Via Frassinago
+30.0
+Via Frassinago
+30.0
+Via Giuseppe Garibaldi
+30.0
+Piazza Cavour
+30.0
+Via Giuseppe Garibaldi
+30.0
+Via Giuseppe Garibaldi
+30.0
+Vicolo Barbazzi
+30.0
+Via De' Poeti
+30.0
+Piazza Cavour
+30.0
+Via De' Poeti
+30.0
+Piazza de' Calderini
+30.0
+Via del Cane
+30.0
+Via del Cane
+30.0
+Piazza del Tribunale
+30.0
+Via Solferino
+30.0
+Via Paglietta
+30.0
+Via Vascelli
+30.0
+Piazza del Tribunale
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Paglietta
+30.0
+Via Solferino
+30.0
+Via Miramonte
+30.0
+Vicolo del Falcone
+30.0
+Via Mirasole
+30.0
+Via Solferino
+30.0
+Via Solferino
+30.0
+Viale dodici Giugno
+30.0
+Viale dodici Giugno
+30.0
+Viale dodici Giugno
+30.0
+Viale dodici Giugno
+30.0
+Viale dodici Giugno
+30.0
+Viale dodici Giugno
+30.0
+Viale XII Giugno
+30.0
+Via Vascelli
+30.0
+Via Vascelli
+30.0
+Viale dodici Giugno
+30.0
+Via Giuseppe Garibaldi
+30.0
+Piazza del Tribunale
+30.0
+Viale dodici Giugno
+30.0
+Vicolo delle Dame
+30.0
+Via Castiglione
+30.0
+Vicolo delle Dame
+30.0
+Via Santo Stefano
+30.0
+Via Santo Stefano
+30.0
+Via Fondazza
+30.0
+Via San Petronio Vecchio
+30.0
+Via San Petronio Vecchio
+30.0
+Via Remorsella
+30.0
+Via Santo Stefano
+30.0
+Via de' Coltelli
+30.0
+Via Santo Stefano
+30.0
+Strada Maggiore
+30.0
+Strada Maggiore
+30.0
+Vicolo Borchetta
+30.0
+Via San Vitale
+30.0
+Via Sant'Apollonia
+30.0
+Via San Vitale
+30.0
+Via Begatto
+30.0
+Via Sant'Apollonia
+30.0
+Via dell'Unione
+30.0
+Via San Vitale
+30.0
+Via Vinazzetti
+30.0
+Via dell'Unione
+30.0
+Via San Vitale
+30.0
+Via Vinazzetti
+30.0
+Via Belmeloro
+30.0
+Via Belmeloro
+30.0
+Via Belmeloro
+30.0
+Via Francesco Acri
+30.0
+Via Giuseppe Petroni
+30.0
+Via delle Lame
+30.0
+Via delle Lame
+30.0
+Via San Felice
+30.0
+Via della Grada
+30.0
+Via Riva di Reno
+30.0
+Via San Felice
+30.0
+Via Riva di Reno
+30.0
+Via Giovanni Brugnoli
+30.0
+Via Riva di Reno
+30.0
+Piazza Manfredi Azzarita
+30.0
+Via Giovanni Brugnoli
+30.0
+Via Giovanni Brugnoli
+30.0
+Piazza Venti Settembre
+30.0
+Via Antonio Gramsci
+30.0
+Via del Rondone
+30.0
+Via del Rondone
+30.0
+Via del Rondone
+30.0
+Via Riva di Reno
+30.0
+Via Azzo Gardino
+30.0
+Via Azzo Gardino
+30.0
+Vicolo Urbaga
+30.0
+Via Gian Battista Morgagni
+30.0
+Via Maggia
+30.0
+Via Belvedere
+30.0
+Via Augusto Majani
+30.0
+Via Nazario Sauro
+30.0
+Via Nazario Sauro
+30.0
+Via Schiavonia
+30.0
+Via Santa Maria Maggiore
+30.0
+Via Nazario Sauro
+30.0
+Via Nazario Sauro
+30.0
+Via San Giorgio
+30.0
+Via Nazario Sauro
+30.0
+Via Maggia
+30.0
+Via Nazario Sauro
+30.0
+Via Monte Grappa
+30.0
+Via Nazario Sauro
+30.0
+Via Nazario Sauro
+30.0
+Via Ugo Bassi
+30.0
+Via Ugo Bassi
+30.0
+Via Monte Grappa
+30.0
+Via Monte Grappa
+30.0
+Via Nazario Sauro
+30.0
+Via Monte Grappa
+30.0
+Via De' Gombruti
+30.0
+Via Porta Nova
+30.0
+Via De' Gombruti
+30.0
+Via Porta Nova
+30.0
+Via dei Felicini
+30.0
+Via Barberia
+30.0
+Via Cesare Battisti
+30.0
+Via Cesare Battisti
+30.0
+Via Quattro Novembre
+30.0
+Via Cesare Battisti
+30.0
+Via Quattro Novembre
+30.0
+Via Quattro Novembre
+30.0
+Via Santa Margherita
+30.0
+Via San Marcellino
+30.0
+Via Cesare Battisti
+30.0
+Via Belfiore
+30.0
+Via Collegio di Spagna
+30.0
+Via Urbana
+30.0
+Via Saragozza
+30.0
+Via San Vitale
+30.0
+Via Begatto
+30.0
+Via Armando Quadri
+30.0
+Via Armando Quadri
+30.0
+Via dei Bersaglieri
+30.0
+Strada Maggiore
+30.0
+Strada Maggiore
+30.0
+Strada Maggiore
+30.0
+Via Castiglione
+30.0
+Via de' Chiari
+30.0
+Via Castiglione
+30.0
+Vicolo Monticelli
+30.0
+Via de' Chiari
+30.0
+Via Paglietta
+30.0
+Via Palestro
+10.0
+Via Capramozza
+10.0
+Via Capramozza
+10.0
+Via Bocca di Lupo
+30.0
+Via Castelfidardo
+30.0
+Via Bocca di Lupo
+30.0
+Via Castelfidardo
+30.0
+Via San Rocco
+30.0
+Via San Rocco
+30.0
+Via San Rocco
+30.0
+Via De Marchi
+30.0
+Via De Marchi
+30.0
+Via De Marchi
+30.0
+Piazza San Francesco
+30.0
+Piazza San Francesco
+30.0
+Piazza San Francesco
+30.0
+Piazza Malpighi
+30.0
+Piazza Malpighi
+30.0
+Via Ca' Selvatica
+30.0
+Via Ca' Selvatica
+10.0
+Via Ca' Selvatica
+10.0
+Via Francesco Zanardi
+30.0
+Via Francesco Zanardi
+30.0
+Via Francesco Zanardi
+30.0
+Piazza 7 novembre 1944
+30.0
+Via Giorgio Ercolani
+30.0
+Piazza Manfredi Azzarita
+30.0
+Piazza Manfredi Azzarita
+30.0
+Piazza Manfredi Azzarita
+30.0
+Piazza Manfredi Azzarita
+30.0
+Piazza Manfredi Azzarita
+30.0
+Rotonda Ettore Tarozzi
+30.0
+Via Ugo Lenzi
+30.0
+Rotonda Ettore Tarozzi
+30.0
+Via Giovanni Brugnoli
+30.0
+Via Giovanni Brugnoli
+30.0
+Via Luigi Calori
+30.0
+Via Giovanni Brugnoli
+30.0
+Via Giovanni Brugnoli
+30.0
+Via Luigi Calori
+30.0
+Via Giovanni Brugnoli
+30.0
+Via Giovanni Brugnoli
+30.0
+Via delle Lame
+30.0
+Via del Rondone
+30.0
+Via Graziano
+30.0
+Via Luigi Calori
+30.0
+Via Graziano
+30.0
+Via Graziano
+30.0
+Via Luigi Calori
+30.0
+Via Libero Battistelli
+30.0
+Via Luigi Calori
+30.0
+Via Libero Battistelli
+30.0
+Via Luigi Calori
+30.0
+Via Alessandro Cervellati
+30.0
+Via Giorgio Ercolani
+30.0
+Via Alessandro Cervellati
+30.0
+Via Alessandro Cervellati
+30.0
+Via Giovanni Brugnoli
+30.0
+Via della Libertà
+30.0
+Via della Libertà
+30.0
+Via Castelfidardo
+30.0
+Via Castelfidardo
+30.0
+Via Tagliapietre
+30.0
+Via Castelfidardo
+30.0
+Via Camillo Casarini
+30.0
+Via Amedeo Parmeggiani
+30.0
+Via Francesco Zanardi
+30.0
+Via Camillo Casarini
+30.0
+Via Camillo Casarini
+30.0
+Via Lodovico Berti
+30.0
+Via Camillo Casarini
+30.0
+Via Lodovico Berti
+30.0
+Via Pier De' Crescenzi
+30.0
+Via Leonetto Cipriani
+30.0
+Via Leonetto Cipriani
+30.0
+Via Leonetto Cipriani
+30.0
+Via Leonetto Cipriani
+30.0
+Via Leonetto Cipriani
+30.0
+Via San Carlo
+30.0
+Via Fontanina
+30.0
+Via Giacomo Venezian
+30.0
+Via Ugo Bassi
+30.0
+Via Ugo Bassi
+30.0
+Via Giacomo Venezian
+30.0
+Via Giacomo Venezian
+30.0
+Via Ugo Bassi
+30.0
+Via Ugo Bassi
+30.0
+Via Ugo Bassi
+30.0
+Via Ugo Bassi
+30.0
+Via Quattro Novembre
+30.0
+Via Quattro Novembre
+30.0
+Via Giacomo Venezian
+30.0
+Piazza Franklin Delano Roosvelt
+30.0
+Via della Zecca
+30.0
+Via dei Terribilia
+30.0
+Via della Zecca
+30.0
+Via Francesco Rismondo
+30.0
+Via Quattro Novembre
+30.0
+Via Quattro Novembre
+30.0
+Piazza Galileo Galilei
+30.0
+Via Quattro Novembre
+30.0
+Vicolo De' Facchini
+30.0
+Vicolo De' Facchini
+30.0
+Vicolo De' Facchini
+30.0
+Strada Maggiore
+30.0
+Strada Maggiore
+30.0
+Piazza di Porta Mascarella
+30.0
+Via San Lorenzo
+30.0
+Giardino Salvatore Pincherle
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via delle Lame
+30.0
+Giardino Salvatore Pincherle
+30.0
+Via Guglielmo Marconi
+30.0
+Via Giuseppe Grabinski
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Riva di Reno
+30.0
+Via Riva di Reno
+30.0
+Via dell'Indipendenza
+30.0
+Via Altabella
+30.0
+Via dell'Indipendenza
+30.0
+Via dell'Indipendenza
+30.0
+Via dell'Indipendenza
+30.0
+Vicolo degli Ariosti
+30.0
+Via Fossalta
+30.0
+Via Altabella
+30.0
+Piazza del Francia
+30.0
+Vicolo Monticelli
+30.0
+Piazza San Giovanni in Monte
+30.0
+Via de' Chiari
+30.0
+Via de' Chiari
+30.0
+Vicolo Stradellaccio
+30.0
+Via del Riccio
+30.0
+Via del Riccio
+30.0
+Via del Riccio
+30.0
+Via del Riccio
+30.0
+Via Saragozza
+30.0
+Via Saragozza
+30.0
+Via Santa Margherita
+30.0
+Via Volto Santo
+30.0
+Via Santa Margherita
+30.0
+Via De' Fusari
+30.0
+Piazza De' Celestini
+30.0
+Via Quattro Novembre
+30.0
+Piazza De' Celestini
+30.0
+Vicolo Spirito Santo
+30.0
+Vicolo Spirito Santo
+30.0
+Via San Marcellino
+30.0
+Via De' Gombruti
+30.0
+Vicolo Olanda
+30.0
+Vicolo Olanda
+30.0
+Via dei Bibiena
+30.0
+Via dei Bibiena
+30.0
+Via dei Bibiena
+30.0
+Via Graziolo Bambaglioli
+30.0
+Via Francesco Petrarca
+30.0
+Via Graziolo Bambaglioli
+30.0
+Via Francesco Petrarca
+30.0
+Via Vallescura
+30.0
+Via Vallescura
+30.0
+Via Vallescura
+30.0
+Via Vallescura
+30.0
+Via Vallescura
+30.0
+Via Massimo D'Azeglio
+30.0
+Mura di Porta Castiglione
+30.0
+Mura di porta D'Azeglio
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Massimo D'Azeglio
+30.0
+Mura di porta D'Azeglio
+30.0
+Mura di porta D'Azeglio
+30.0
+Viale Antonio Aldini
+30.0
+Via delle Lame
+30.0
+Via Luigi Calori
+30.0
+Via delle Lame
+30.0
+Via del Rondone
+30.0
+Via del Rondone
+30.0
+Via del Rondone
+30.0
+Via Arienti
+30.0
+Via Arienti
+30.0
+Piazza del Tribunale
+30.0
+Via Castiglione
+30.0
+Vicolo dell'Orto
+30.0
+Via De' Poeti
+30.0
+Vicolo dell'Orto
+30.0
+Via Morandi
+30.0
+Via del Cane
+30.0
+Via del Cane
+30.0
+Via Morandi
+30.0
+Vicolo Mariscotti
+30.0
+Via degli Albari
+30.0
+Via Altabella
+30.0
+Via Altabella
+30.0
+Via Goito
+30.0
+Via del Fico
+30.0
+Via del Monte
+30.0
+Via del Monte
+30.0
+Via Marsala
+30.0
+Via San Simone
+30.0
+Via Guglielmo Oberdan
+30.0
+Via Guglielmo Oberdan
+30.0
+Via Sant'Alò
+30.0
+Vicolo Albiroli
+30.0
+Via Sant'Alò
+30.0
+Via Albiroli
+30.0
+Vicolo Albiroli
+30.0
+Vicolo della Neve
+30.0
+Vicolo della Neve
+30.0
+Vicolo della Neve
+30.0
+Via Volto Santo
+30.0
+Via Santa Margherita
+30.0
+Via Val D'Aposa
+30.0
+Via Carbonara
+30.0
+Via Goito
+30.0
+Via Carbonara
+30.0
+Via degli Albari
+30.0
+Via Guglielmo Oberdan
+30.0
+Via Altabella
+30.0
+Via degli Albari
+30.0
+Via San Nicolò
+30.0
+Via degli Albari
+30.0
+Via Goito
+30.0
+Via degli Albari
+30.0
+Via degli Albari
+30.0
+Via degli Albari
+30.0
+Vicolo Borchetta
+30.0
+Via San Leonardo
+30.0
+Via San Leonardo
+30.0
+Via del Borgo di San Pietro
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Vicolo Alemagna
+30.0
+Via San Simone
+30.0
+Vicolo Mandria
+30.0
+Vicolo Mandria
+30.0
+Vicolo Mandria
+30.0
+Vicolo Tubertini
+30.0
+Via del Monte
+30.0
+Via Federico Venturini
+30.0
+Via Guglielmo Oberdan
+30.0
+Via delle Oche
+30.0
+Via Bertiera
+30.0
+Via Piella
+30.0
+Via Bertiera
+30.0
+Vicolo Cattani
+30.0
+Via Malcontenti
+30.0
+Via Malcontenti
+30.0
+Via Bertiera
+30.0
+Via Marsala
+30.0
+Vicolo Cattani
+30.0
+Via Ugo Bassi
+30.0
+Via dell'Indipendenza
+30.0
+Via Francesco Rizzoli
+30.0
+Vicolo degli Ariosti
+30.0
+Via de' Piatesi
+30.0
+Via de' Piatesi
+30.0
+Via de' Piatesi
+30.0
+Via de' Piatesi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via delle Lame
+30.0
+Via Santa Margherita
+30.0
+Vicolo Spirito Santo
+30.0
+Via De' Griffoni
+30.0
+Vicolo Spirito Santo
+30.0
+Mura di Porta Saragozza
+30.0
+Via Ugo Foscolo
+30.0
+Via Ugo Foscolo
+30.0
+Via Santo Stefano
+30.0
+Via Santo Stefano
+30.0
+Via Dante Alighieri
+30.0
+Via Santo Stefano
+30.0
+Via Dante Alighieri
+30.0
+Via Dante Alighieri
+30.0
+Via Marescalchi
+30.0
+Piazza Galileo Galilei
+30.0
+Via Quattro Novembre
+30.0
+Piazza Franklin Delano Roosvelt
+30.0
+Via Francesco Rismondo
+30.0
+Via Polese
+30.0
+Via Fontanina
+30.0
+Via Guglielmo Marconi
+30.0
+Via Guglielmo Marconi
+30.0
+Via Riva di Reno
+30.0
+Via Riva di Reno
+30.0
+Rotonda Ettore Tarozzi
+30.0
+Via San Felice
+30.0
+Via dell'Abbadia
+30.0
+Via Riva di Reno
+30.0
+Via dell'Abbadia
+30.0
+Via Riva di Reno
+30.0
+Vicolo Otto Colonne
+30.0
+Via Marsili
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Tagliapietre
+30.0
+Via Solferino
+30.0
+Via Solferino
+30.0
+Via Solferino
+30.0
+Via Alfonso Rubbiani
+30.0
+Vicolo Santa Lucia
+30.0
+Piazza Aldrovandi
+30.0
+Via San Vitale
+30.0
+Piazza Aldrovandi
+30.0
+Vicolo Bianchetti
+30.0
+Piazza Aldrovandi
+30.0
+Via de' Chiari
+30.0
+Via Rialto
+30.0
+Via Orfeo
+30.0
+Via Rialto
+30.0
+Via della Braina
+30.0
+Via Albano Sorbelli
+30.0
+Via Fondazza
+30.0
+Via Capo di Lucca
+30.0
+Via del Pallone
+30.0
+Via Capo di Lucca
+30.0
+Via del Pallone
+30.0
+Via del Borgo di San Pietro
+30.0
+Via Angelo Finelli
+30.0
+Via del Borgo di San Pietro
+30.0
+Via Angelo Finelli
+30.0
+Via Angelo Finelli
+30.0
+Via Angelo Finelli
+30.0
+Via del Borgo di San Pietro
+30.0
+Via del Borgo di San Pietro
+30.0
+Via del Borgo di San Pietro
+30.0
+Via del Borgo di San Pietro
+30.0
+Via Mura di Porta Galliera
+30.0
+Piazza di Porta Mascarella
+30.0
+Via Mascarella
+30.0
+Via Mascarella
+30.0
+Via de' Coltellini
+10.0
+Via San Felice
+30.0
+Via San Rocco
+30.0
+Via della Grada
+30.0
+Via della Grada
+30.0
+Via della Grada
+30.0
+Via della Grada
+30.0
+Piazza Venti Settembre
+30.0
+Piazza Venti Settembre
+30.0
+Piazza Venti Settembre
+30.0
+Piazza Venti Settembre
+30.0
+Via Cesare Boldrini
+30.0
+Via Cesare Boldrini
+30.0
+Via Graziano
+30.0
+Via Mondino De' Liuzzi
+30.0
+Via Caduti del Lavoro
+30.0
+Largo Caduti del Lavoro
+30.0
+Via Caduti del Lavoro
+30.0
+Largo Caduti del Lavoro
+30.0
+Largo Caduti del Lavoro
+30.0
+Via Azzo Gardino
+30.0
+Via Azzo Gardino
+30.0
+Via Azzo Gardino
+30.0
+Via Giorgio Ercolani
+30.0
+Via Graziano
+30.0
+Via Nino Nannetti
+30.0
+Via Graziano
+30.0
+Via Ugo Lenzi
+30.0
+Via Ugo Lenzi
+30.0
+Piazza Manfredi Azzarita
+30.0
+Via Luigi Calori
+30.0
+Via Padre Francesco Maria Grimaldi
+30.0
+Piazza Manfredi Azzarita
+30.0
+Rotonda Ettore Tarozzi
+30.0
+Via Riva di Reno
+30.0
+Rotonda Ettore Tarozzi
+30.0
+Via Riva di Reno
+30.0
+Rotonda Ettore Tarozzi
+30.0
+Via Galliera
+30.0
+Via de' Preti
+30.0
+Via Volturno
+30.0
+Vicolo Carega
+30.0
+Via Parigi
+30.0
+Vicolo Carega
+30.0
+Via de' Corighi
+30.0
+Via de' Monari
+30.0
+Via de' Monari
+30.0
+Via de' Piatesi
+30.0
+Via de' Monari
+30.0
+Via de' Monari
+30.0
+Via de' Piatesi
+30.0
+Via Iacopo Barozzi
+30.0
+Via Iacopo Barozzi
+30.0
+Via Riva di Reno
+30.0
+Via Riva di Reno
+30.0
+Via delle Lame
+30.0
+Via Porta di Castello
+30.0
+Via Giovanni Battista de Rolandis
+30.0
+Via Avesella
+30.0
+Vicolo Paglia Corta
+30.0
+Piazza Franklin Delano Roosvelt
+30.0
+Via della Zecca
+30.0
+Via Urbana
+30.0
+Via Bocca di Lupo
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Don Giovanni Minzoni
+30.0
+Via Giorgio Ercolani
+30.0
+Via Pompeo Scipione Dolfi
+30.0
+Via Giorgio Ercolani
+30.0
+Via Alberto Menarini
+30.0
+Mura di Porta Lame
+30.0
+Via Azzo Gardino
+30.0
+Mura di Porta Lame
+30.0
+Via Azzo Gardino
+30.0
+Largo Caduti del Lavoro
+30.0
+Vicolo Paglia Corta
+30.0
+Viale Antonio Aldini
+30.0
+Via Pastrengo
+30.0
+Via Castelfidardo
+30.0
+Via Castelfidardo
+30.0
+Via Pastrengo
+30.0
+Via Castelfidardo
+30.0
+Via Azzo Gardino
+30.0
+Via Azzo Gardino
+30.0
+Via Francesco Acri
+30.0
+Via Belmeloro
+30.0
+Via Belmeloro
+30.0
+Via San Sigismondo
+30.0
+Largo Alfredo Trombetti
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Capo di Lucca
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Luigi Calori
+30.0
+Piazza Manfredi Azzarita
+30.0
+Via Luigi Calori
+30.0
+Via San Rocco
+30.0
+Piazza VIII Agosto
+30.0
+Via Piero Maroncelli
+30.0
+Via XX ottobre 1944
+30.0
+Via XX ottobre 1944
+30.0
+Via Zamboni
+30.0
+Piazzetta Roberto Naviola
+30.0
+Via delle Belle Arti
+30.0
+Via delle Belle Arti
+30.0
+Largo Alfredo Trombetti
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Irnerio
+30.0
+Via Francesco Selmi
+30.0
+Via Zamboni
+30.0
+Via Tagliapietre
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Massimo D'Azeglio
+30.0
+Via Massimo D'Azeglio
+30.0
+Piazza Re Enzo
+30.0
+Largo Caduti del Lavoro
+30.0
+Via Guglielmo Marconi
+30.0
+Via Mura di Porta Galliera
+30.0
+Via Giacomo Venezian
+30.0
+Viale Antonio Aldini
+30.0
+Viale Antonio Aldini
+30.0
+Piazza de' Calderini
+30.0
+Via Mascarella
+30.0
+Via Cesare Boldrini
+30.0
+Via Cesare Boldrini
+30.0
+Via Savenella
+30.0
+Via Savenella
+30.0
+Via Azzo Gardino
+30.0
+Via Dante Alighieri
+30.0

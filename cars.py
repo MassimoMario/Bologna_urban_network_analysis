@@ -332,6 +332,7 @@ class Cars():
                     #self.accel[i] = self.max_speed[i]*self.velocities[i]/(4*v_abs)
                     #self.velocities[i] += self.accel[i]*dt
                     self.accel[i] += (self.max_speed[i]-v_abs)*self.velocities[i]/v_abs
+                    #self.accel[i] += (self.max_speed[i]-v_abs)*self.velocities[i]/(0.1*self.max_speed[i])
                     #self.accel[i] += self.max_speed[i]*self.velocities[i]/5
 
                     
@@ -341,8 +342,12 @@ class Cars():
             #ACCIDENTS
             if self.accident(i,size,radius):
                 self.accidents += 1   
-                self.velocities[i] = (0.0,0.0)
+                #self.velocities[i] = (0.0,0.0)
                 accident_position.append((road[self.position_along_path[i]],road[self.position_along_path[i]+1]))
+                self.start_another_journey(i,graph,size,radius,edge_passage,edge_counts,nodes,edges,dt,closeness_centrality)
+                self.position_along_path[i] = 0
+                continue
+
 
             #change direction if an intermediate node is near
             if np.linalg.norm(self.positions[i]-np.array([(nodes['x'][road[self.position_along_path[i]+1]]) , nodes['y'][road[self.position_along_path[i]+1]]])) <= self.turn_range[i]:
@@ -376,4 +381,3 @@ class Cars():
             v = np.linalg.norm(self.velocities[i])
             self.turn_range[i] = v*dt
             self.positions[i] += self.velocities[i]*dt + self.accel[i]*dt*dt/2
-            

@@ -42,6 +42,13 @@ class Cars():
             self.accel[i] = (0,0)
     
     def get_velocity_angle(self,car_i):
+        '''Function returning the angle of the velocity compared to horizontal line
+        Args:
+           car_i : int = ith car
+
+        Returns:
+           angle : float
+        '''
         vx = self.velocities[car_i][0]
         v = np.linalg.norm(self.velocities[car_i])
         arccos = np.arccos(vx/v)
@@ -70,6 +77,13 @@ class Cars():
         return angle
              
     def get_angle(self,vector):
+        '''Function returning the angle of a generic vector compared to the horizontal line
+        Args:
+          vector : array
+
+        Returns:
+           angle : float
+        '''
         x = vector[0]
         y = vector[1]
         v = np.linalg.norm(vector)
@@ -99,6 +113,14 @@ class Cars():
         return angle
 
     def another_car_is_near(self,car_i):
+        '''Function returning True if another car is near to the i th car
+        Args:
+          car_i : int = ith car
+
+        Returns:
+           Bool
+           dist : float = distance of the car
+        '''
         for n in range(self.n_cars):
             diff_position = self.positions[n] - self.positions[car_i]
             dist = np.linalg.norm(diff_position)
@@ -123,13 +145,31 @@ class Cars():
 
 
     def accident_probability_distribution(self,v,size,radius):
+        '''Function setting the probability distribution of an accident with respect to the relative speed between two cars
+        Args: 
+           v : float = relative speed between two cars
+        size : int = refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
+      radius : int = radius of the city in meters, it must be the same used for initializing graph
+
+      Returns:
+           p : float = accident probability
+        '''
         dv = v*3.6*2*radius/(size*self.speed_up)
         p = 0.01/(0.01+np.exp(-dv*2/100))
-
-        return p/50
+        p /= 50
+        return p
     
 
     def accident(self,car_i,size,radius):
+        '''Function returning True if an accident occurs between ith and another car
+        Args: 
+          car_i : int = ith car
+           size : int = refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
+         radius : int = radius of the city in meters, it must be the same used for initializing graph
+
+        Returns:
+           Bool
+        '''
         for n in range(self.n_cars):
             dist = np.linalg.norm(self.positions[car_i] - self.positions[n])
             v_i = np.linalg.norm(self.velocities[car_i])
@@ -149,7 +189,23 @@ class Cars():
             else: 
                 return False
 
+
     def start_another_journey(self,car_i,graph,size,radius,edge_passage,edge_counts,nodes,edges,dt,closeness_centrality):
+        '''Function that restart the journey of a car when final node is reached
+        Args:
+               car_i : int = ith car
+               graph : networkx.MultiDiGraph
+                size : int = refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
+              radius : int = radius of the city in meters, it must be the same used for initializing graph
+        edge_passage : list = list of edges that have been traveled [initial node, final node]
+         edge_counts : list = take counts of how many times an edges have been traveled
+               nodes : GeoDataFrame = contains graph nodes informations
+               edges : GeoDataFrame = contains graph edges informations
+                  dt : float = time interval used in the simulation
+closeness_centrality : list = closeness centrality values used to compute initial and final node of a path
+     
+       Returns: nothing
+        '''
         # Convert degree centrality dictionary to an array
         nodes_list = list(closeness_centrality.keys())
         degree_values = np.array(list(closeness_centrality.values()))
@@ -224,7 +280,23 @@ class Cars():
             length += edge_series[road[i]][road[i+1]][0]
             return length
         
+
     def set_initial_condition(self,graph,size,radius,speed_up,dt,edge_passage,edge_counts,nodes,edges,closeness_centrality):
+        '''Funtion initialing the initial condition of the simulation
+        Args:
+               graph : networkx.MultiDiGraph
+                size : int = refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
+              radius : int = radius of the city in meters, it must be the same used for initializing graph
+            speed_up : int = speed up factor of the simulation
+                  dt : float = time interval used in the simulation
+        edge_passage : list = list of edges that have been traveled [initial node, final node]
+         edge_counts : list = take counts of how many times an edges have been traveled
+               nodes : GeoDataFrame = contains graph nodes informations
+               edges : GeoDataFrame = contains graph edges informations
+closeness_centrality : list = closeness centrality values used to compute initial and final node of a path
+     
+       Returns: nothing
+        '''
         #self.max_speed = max_speed
         self.speed_up = speed_up
 
@@ -290,6 +362,24 @@ class Cars():
 
 
     def update(self,graph,size,radius,speed_up,dt,n_frame,nodes,edges,edge_passage,edge_counts,accident_position,travelling_times,closeness_centrality):
+        '''Function updating at every frame cars positions and velocities computing their accelerations
+        Args:
+               graph : networkx.MultiDiGraph
+                size : int = refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
+              radius : int = radius of the city in meters, it must be the same used for initializing graph
+            speed_up : int = speed up factor of the simulation
+                  dt : float = time interval used in the simulation
+             n_frame : int = number of current frame
+               nodes : GeoDataFrame = contains graph nodes informations
+               edges : GeoDataFrame = contains graph edges informations
+        edge_passage : list = list of edges that have been traveled [initial node, final node]
+         edge_counts : list = take counts of how many times an edges have been traveled
+   accident_position : 2d array = 2d array with [initial node,final node] denoting the edge where the accident occurs
+    travelling_times : list = list of travelling times values, updated every time a car reaches its target node
+closeness_centrality : list = closeness centrality values used to compute initial and final node of a path
+     
+       Returns: nothing
+        '''
 
         #nodes, _ = ox.graph_to_gdfs(graph, nodes=True, edges=True)
         #nodes['x'] = ((nodes['x'] - min(nodes['x']))/(max(nodes['x'])-min(nodes['x'])))*size

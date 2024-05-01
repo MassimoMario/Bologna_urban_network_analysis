@@ -8,16 +8,26 @@ from matplotlib.animation import FuncAnimation
 from IPython.display import display, HTML
 from tqdm import tqdm
 from cars import Cars
+import utilities as ut
 
-def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, size = 100, scale = 0.3, dt = 0.05, n_frame = 300, animate = True):
-    
-    ''' speed_up = speed_up factor making simulation faster than reality
-    
-        size : refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
 
-        scale : refers to arrows dimensions within the animation
-       
-        turn range : range with which the car sees a new node and turn its velocity. Take it around  max_speed*dt
+def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, size, scale = 0.3, dt = 0.05, n_frame = 300, animate = True):
+    
+    '''Args: 
+               graph : networkx.MultiDiGraph
+              n_cars : int = number of cars to simulate
+              radius : int = radius of the city in meters, it must be the same used for initializing graph
+            speed_up : int = speed_up factor making simulation faster than reality 
+closeness_centrality : list = list of closeness centrality values used fot predict initial and final node of a car path
+                size : int = refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
+               scale : float = refers to scale of arrows dimension within the animation
+                  dt : float = time interval with which the simulation is computed
+            n_frames : int = number of frames of the simulation
+             animate : Bool = if True shows traffic animation, speeds animation and accelerations animation
+
+        Return:
+     streets:passage : 3d array = 3d array with [initial node, final node, number of times that edge has been traveled]
+  accident_positions : 2d array = 2d array with [initial node,final node] denoting the edge where the accident occurs
        '''
     cars = Cars(n_cars)
     edges_passage = []
@@ -29,14 +39,16 @@ def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, si
     nodes['x'] = ((nodes['x'] - min(nodes['x']))/(max(nodes['x'])-min(nodes['x'])))*size
     nodes['y'] = ((nodes['y']-min(nodes['y']))/(max(nodes['y']) - min(nodes['y'])))*size
     
+    print('\nInitialization: \n')
     cars.set_initial_condition(graph,size,radius,speed_up,dt,edges_passage,edge_counts,nodes,edges,closeness_centrality)
-    print('\nInitialization done\n')
+    print('Initialization done\n')
 
     n_cars = cars.get_n_cars()
     c_positions = np.zeros((n_frame, n_cars, 2))
     c_velocities = np.zeros((n_frame, n_cars, 2))
     c_accel = np.zeros((n_frame, n_cars, 2))
 
+    print('Simulation: \n')
     #for loop computing time steps for animation
     for n in tqdm(range(n_frame)):
         c_positions[n] = cars.get_positions()
@@ -47,6 +59,47 @@ def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, si
 
         cars.update(graph,size,radius,speed_up,dt,n,nodes,edges,edges_passage,edge_counts,accident_positions,travelling_times,closeness_centrality)
         
+
+    cars_velocities = np.zeros((np.shape(c_velocities)[0],np.shape(c_velocities)[1]))
+    max_velocity_per_frame = np.zeros(n_frame)
+    mean_velocity_per_frame = np.zeros(n_frame)
+
+
+    for i in range(np.shape(c_velocities)[0]):
+        for n in range(np.shape(c_velocities)[1]):
+            cars_velocities[i][n] = np.linalg.norm(c_velocities[i][n])*3.6*2*radius/(size*speed_up)
+        mean_velocity_per_frame[i] = np.mean(cars_velocities[i])
+        max_velocity_per_frame[i] = max(cars_velocities[i])
+
+    mean_speed = np.mean(mean_velocity_per_frame)
+
+    cars_accelerations = np.zeros((np.shape(c_accel)[0],np.shape(c_accel)[1]))
+    max_accel_per_frame = np.zeros(n_frame)
+    min_accel_per_frame = np.zeros(n_frame)
+    mean_accel_per_frame = np.zeros(n_frame)
+
+    for i in range(np.shape(c_accel)[0]):
+        for n in range(np.shape(c_accel)[1]):
+            cars_accelerations[i][n] = np.linalg.norm(c_accel[i][n])*3.6*2*radius/(size*speed_up)
+        mean_accel_per_frame[i] = np.mean(cars_accelerations[i])
+        max_accel_per_frame[i] = max(cars_accelerations[i])
+        min_accel_per_frame[i] = min(cars_accelerations[i])
+
+    mean_accel = np.mean(mean_accel_per_frame)
+    
+    mean_travelling_time = sum(travelling_times)/len(travelling_times)
+
+    print('Simulation done: \n')
+    print(f"\nVelocity respect to real life is {speed_up} times faster \n")
+    print(f"Number of accidents: {cars.number_of_accidents()}\n")
+    print(f'Mean speed: {mean_speed:.2f} Km/h\n')
+    print(f'Mean acceleration: {mean_accel:.2f}Km/h/s\n')
+    print(f'Min accel: {min(min_accel_per_frame)}Km/h/s, Max accel: {max(max_accel_per_frame):.2f}Km/h/s\n')
+    print(f'Mean travelling time: {int(mean_travelling_time/60)}m {round((mean_travelling_time/60 - int(mean_travelling_time/60))*60,2)}s\n')
+    #nodes, edges = ox.graph_to_gdfs(traffic_graph, nodes=True, edges=True)
+    street_passage = [(x[0],x[1],y) for x,y in zip(edges_passage,edge_counts)]
+
+    ut.show_travelling_times(travelling_times)
 
     if animate:
         fig, ax = plt.subplots(figsize=(7,7))
@@ -81,45 +134,13 @@ def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, si
             return scat,
 
         ani = FuncAnimation(fig, update, frames=n_frame, blit=True)
-        print("Simulation finished. Video processing ...\n")
+        print("Video processing . . .\n")
         display(HTML(ani.to_jshtml()))
-    
-    cars_velocities = np.zeros((np.shape(c_velocities)[0],np.shape(c_velocities)[1]))
-    max_velocity_per_frame = np.zeros(n_frame)
-    mean_velocity_per_frame = np.zeros(n_frame)
 
+        print('Animating speeds . . .\n')
+        ut.animate_speeds(cars_velocities,max_velocity_per_frame,n_cars,speed_up,dt)
 
-    for i in range(np.shape(c_velocities)[0]):
-        for n in range(np.shape(c_velocities)[1]):
-            cars_velocities[i][n] = np.linalg.norm(c_velocities[i][n])*3.6*2*radius/(size*speed_up)
-        mean_velocity_per_frame[i] = np.mean(cars_velocities[i])
-        max_velocity_per_frame[i] = max(cars_velocities[i])
-
-    mean_speed = np.mean(mean_velocity_per_frame)
-
-    cars_accelerations = np.zeros((np.shape(c_accel)[0],np.shape(c_accel)[1]))
-    max_accel_per_frame = np.zeros(n_frame)
-    min_accel_per_frame = np.zeros(n_frame)
-    mean_accel_per_frame = np.zeros(n_frame)
-
-    for i in range(np.shape(c_accel)[0]):
-        for n in range(np.shape(c_accel)[1]):
-            cars_accelerations[i][n] = np.linalg.norm(c_accel[i][n])*3.6*2*radius/(size*speed_up)
-        mean_accel_per_frame[i] = np.mean(cars_accelerations[i])
-        max_accel_per_frame[i] = max(cars_accelerations[i])
-        min_accel_per_frame[i] = min(cars_accelerations[i])
-
-    mean_accel = np.mean(mean_accel_per_frame)
-    
-    mean_travelling_time = sum(travelling_times)/len(travelling_times)
-
-    print(f"\nVelocity respect to real life is {speed_up} times faster \n")
-    print(f"Number of accidents: {cars.number_of_accidents()}\n")
-    print(f'Mean speed: {mean_speed:.2f} Km/h\n')
-    print(f'Mean acceleration: {mean_accel:.2f}Km/h/s\n')
-    print(f'Min accel: {min(min_accel_per_frame)}, Max accel: {max(max_accel_per_frame)}\n')
-    print(f'Mean travelling time: {int(mean_travelling_time/60)}m {round((mean_travelling_time/60 - int(mean_travelling_time/60))*60,2)}s\n')
-    #nodes, edges = ox.graph_to_gdfs(traffic_graph, nodes=True, edges=True)
-    street_passage = [(x[0],x[1],y) for x,y in zip(edges_passage,edge_counts)]
+        print('Animate accelerations . . .\n')
+        ut.animate_accelerations(cars_accelerations,max_accel_per_frame,n_cars,speed_up,dt)
 
     return cars_velocities , cars_accelerations, max_accel_per_frame, max_velocity_per_frame, mean_speed, mean_accel, travelling_times, mean_travelling_time, street_passage,accident_positions

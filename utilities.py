@@ -9,15 +9,34 @@ from matplotlib.animation import FuncAnimation
 from IPython.display import display, HTML
 import statistics as st
 
-# Function cleaning data of Osmnx edges data and setting travelling times (work fine for Bologna but it's not meant to be used on other cities)
-# Needs to be runned before others when initializing the graph
-# It's setted on Bologna, it's not meant to be runned on other cities
+# Latitudes and longitudes of 'Zona 30' cities except Minneapolis (all the italians except Bologna are in discussion)
+cities = {'Bologna' : (44.495555, 11.3428), 'Ferrara' : (44.835297, 11.619865), 'Modena' : (44.64582, 10.92572), 'Reggio Emilia' : (44.7, 10.633333), 
+          'Firenze' : (43.771389, 11.254167), 'Torino' : (45.079167, 7.676111), 'Napoli' : (40.833333, 14.25), 'Milano' : (45.466944, 9.19), 
+          'Roma' : (41.893056, 12.482778), 'Bergamo' : (45.695, 9.67), 'Verona' : (45.438611, 10.992778), 'Lecce' : (40.352011, 18.169139), 
+          'Padova' : (45.406389, 11.877778), 'Olbia' : (40.916667, 9.5), 'Pesaro' : (43.91015, 12.9133), 'Lecco' : (45.85334, 9.39048),
+          'Nantes' : (47.218056, -1.552778), 'Minneapolis' : (44.98, -93.268333), 'Bilbao' : (43.266667, -2.933334),'Zurich' : (47.374444, 8.541111), 
+          'Valencia' : (39.483333, -0.366667), 'Barcelona' : (41.3825, 2.176944), 'Madrid' : (40.415524, -3.707488), 'Toronto' : (43.716589, -79.340686), 
+          'Bruxelles' : (50.846667, 4.351667), 'Lyon' : (45.766944, 4.834167), 'Graz' : (47.070833, 15.438611), 'Edinburgh' : (55.953333, -3.189167),
+          'La Plata' : (-34.916667,-57.95)}
+
+# Street names for ZTL zone in 4 different cities
+ztl = {'Bologna' : ['Via Francesco Rizzoli','Via Ugo Bassi',"Via dell'Indipendenza"],
+       'Nantes' : ['Rue du Calvaire','Cours des Cinquante Otages','Cours Olivier de Clisson'],
+       'Zurich' : ['Langstrasse'],
+       'Edinburgh' : ['Lothian Road','Cockburn Street','North Bridge',"St Mary's Street"]}
+
+# --------------------------------------------------------------------------------------------- #
+
+
 def clean_graph_data(graph):
-    '''function cleaning data in graph.edges and setting travelling time
-
-        needs to be runned as first function after the urban network is initialized
-
-        it's setted on Bologna, it's not meant to be runned on other cities '''
+    '''Function cleaning data of Osmnx edges data and setting travelling times (work fine for Bologna but it's not meant to be used on other cities)
+       Needs to be runned before others when initializing the graph
+       It's setted on Bologna, it's not meant to be runned on other cities
+    Args:
+          graph : networkx.MultiDiGraph 
+          
+    Returns: nothing
+    '''
     
     for _,_,data in graph.edges(data=True):
         data['passage'] = 0
@@ -37,11 +56,70 @@ def clean_graph_data(graph):
     for _,data in graph.nodes(data=True):
         data['accident'] = 0
 
-###
-        
 
-# Function showing centrality analysis
-def centrality_analysis(graph,city : str):
+# --------------------------------------------------------------------------------------------- #
+
+
+def set_road_network(city:str, city_radius = 3900):
+    ''' Function initializing the network
+    Args: 
+              city : str = name of the city
+       city_radius : int = radius of the city in meters
+
+    Returns:
+       graph : networkx.MultiDiGraph
+ city_radius : int
+    '''
+    # Create urban network from latitude and longitude
+    graph = ox.graph_from_point(cities[city], dist=city_radius, dist_type='bbox', network_type='drive_service', simplify = True)
+    graph = ox.project_graph(graph)
+    osmids = list(graph.nodes)
+    graph = nx.relabel.convert_node_labels_to_integers(graph)
+
+    # give each node its original osmid as attribute since we relabeled them
+    osmid_values = {k: v for k, v in zip(graph.nodes, osmids)}
+    nx.set_node_attributes(graph, osmid_values, "osmid")
+
+    if city == 'Bologna':
+        #inizializing some useful graph attributes
+        clean_graph_data(graph)
+
+        tangenziale = ['Tangenziale di Bologna', 'Autostrada Bologna-Padova','Autostrada Adriatica']
+        remove_edges(graph,tangenziale)
+
+    #G.remove_node(9)
+    #G.remove_node(11)
+    fig, ax = ox.plot.plot_graph(graph, bgcolor='black',node_size=5, node_color='white', show=False)
+    plt.axis('on')
+    plt.title(city + ' road network',color='white')
+    plt.show()
+
+    return graph , city_radius
+
+
+# --------------------------------------------------------------------------------------------- #
+
+
+
+def centrality_analysis(city : str, city_radius = 3900):
+    '''Function showing centrality analysis
+    Args:
+          city : str = name of the city
+   city_radius : int = radius of the city in meters
+
+    Returns: nothing
+    '''
+
+    # Create urban network from latitude and longitude
+    graph = ox.graph_from_point(cities[city], dist=city_radius, dist_type='bbox', network_type='drive_service', simplify = True)
+    graph = ox.project_graph(graph)
+    osmids = list(graph.nodes)
+    graph = nx.relabel.convert_node_labels_to_integers(graph)
+
+    # give each node its original osmid as attribute since we relabeled them
+    osmid_values = {k: v for k, v in zip(graph.nodes, osmids)}
+    nx.set_node_attributes(graph, osmid_values, "osmid")
+
     fig, axs = plt.subplots(2, 2, figsize=(13,13))
 
     # compute degree centrality
@@ -97,7 +175,7 @@ def centrality_analysis(graph,city : str):
         else: 
             ox.plot_graph(graph, ax,
                         node_color=plt.cm.viridis(values), 
-                        node_size=3, 
+                        node_size=4, 
                         edge_linewidth=0.5, 
                         bgcolor = 'white', 
                         show=False)
@@ -108,10 +186,19 @@ def centrality_analysis(graph,city : str):
 
     plt.show()
 
-###
+
+# --------------------------------------------------------------------------------------------- #
     
-# Function computing global efficiency of the entire graph
+    
+
 def global_efficiency(graph):
+    '''Function computing global efficiency of the entire graph
+    Args:
+          graph : networkx.MultiDiGraph
+
+    Returns:
+         global_efficiency : float
+    '''
     nodes, edges = ox.graph_to_gdfs(graph, nodes=True, edges=True)
     efficiency = 0
     efficiency_euclid = 0
@@ -127,23 +214,78 @@ def global_efficiency(graph):
                     global_efficiency = efficiency/(N*(N-1))
     return global_efficiency
 
-###
 
-# Function setting the same speed limit to every street
+# --------------------------------------------------------------------------------------------- #
+
+#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+# Function computing global efficiency etcetcetc
+def vulnerability(city:str,city_radius = 2000):
+    '''Args:
+          city : str = name of the city
+   city_radius : int = radius of the city in meters
+
+       Returns: nothing
+    '''
+
+    # Create urban network from latitude and longitude
+    graph = ox.graph_from_point(cities[city], dist=city_radius, dist_type='bbox', network_type='drive_service', simplify = True)
+    graph = ox.project_graph(graph)
+    osmids = list(graph.nodes)
+    graph = nx.relabel.convert_node_labels_to_integers(graph)
+
+    # give each node its original osmid as attribute since we relabeled them
+    osmid_values = {k: v for k, v in zip(graph.nodes, osmids)}
+    nx.set_node_attributes(graph, osmid_values, "osmid")
+
+    nx.set_edge_attributes(graph,'darkgray','color')
+    
+    edges_to_color = [(u, v,k) for u, v, k,data in graph.edges(keys=True,data=True) if 'name' in data and data['name'] in ztl[city]]
+    for u,v,k in edges_to_color:
+        graph.edges[u,v,k]['color'] = 'r'
+
+    # Plot the graph with specific edge colors
+    ec = np.array([graph.edges[edge]['color'] for edge in graph.edges])
+    ox.plot_graph(graph, bgcolor='white',node_size=3, edge_color=ec, node_color='black', show=False)
+
+    c1 = global_efficiency(graph)
+    remove_edges(graph,ztl[city])
+    c2 = global_efficiency(graph)
+
+    plt.axis('on')
+    plt.title(city + ' ZTL',color='white')
+    print(city + f' vulnerability factor: {(c1-c2)/c1:.4f}')
+    plt.show()
+
+
+# --------------------------------------------------------------------------------------------- #
+    
+
+
 def set_max_speed_all(graph,max_speed : int):
-    '''max_speed : in Km/h'''
+    '''Function setting the same speed limit to every street
+    Args:
+        graph : networkx.MultiDiGraph
+    max_speed : int = max speed to set in every streets in km/h
+     
+    Returns: nothing
+    '''
     for _,_,data in graph.edges(data=True):
         data['maxspeed'] = max_speed
 
         #set automatically the new travelling time
         data['travelling_time'] = data['length']*3.6 / float(data['maxspeed'])
 
-###
+
+# --------------------------------------------------------------------------------------------- #
         
-# Function setting speed limit in a given number of streets
+        
 def set_max_speed(graph,street_names, max_speed : int):
-    '''street_names : array of strings with streets names
-        max_speed : in Km/h
+    '''Function setting speed limit in a given number of streets
+    Args:
+     street_names : list = array of strings with streets names
+        max_speed : int = max speed to set in those streets in Km/h
+
+    Returns: nothing
     '''
     for _,_,data in graph.edges(data=True):
         if 'name' in data:
@@ -152,10 +294,19 @@ def set_max_speed(graph,street_names, max_speed : int):
                 #set automatically the new travelling time
                 data['travelling_time'] = data['length']*3.6 / float(data['maxspeed'])
 
-###
+
+# --------------------------------------------------------------------------------------------- #
                 
-# Function removing streets from the graph
+                
+
 def remove_edges(graph,street_names):
+    '''Function removing streets from the graph
+    Args:
+        graph : networkx.MultiDiGraph
+ street_names : list = list of streets to be removed from the urban network
+    
+    Returns : nothing
+    '''
     edges_to_be_removed = []
     for u,v,data in graph.edges(data=True):
         if 'name' in data and data['name'] in street_names:
@@ -167,10 +318,19 @@ def remove_edges(graph,street_names):
         if v in graph.nodes:
             graph.remove_node(v)
 
-###
+
+# --------------------------------------------------------------------------------------------- #
             
-# Function showing traffic and accident
+            
 def show_traffic_and_accident(graph,street_passage,accident_positions):
+    '''Function showing traffic and accident
+    Args:
+             graph : networkx.MultiDiGraph 
+    street_passage : 3d array = 3d array with initial node, final node, number of times that edge has been traveled
+accident_positions : 2d array = 2d array with [initial node,final node] denoting the edge where the accident occurs
+
+    Returns: nothing
+    '''
     nodes,edges = ox.graph_to_gdfs(graph,nodes=True,edges=True)
 
     for edge in street_passage:
@@ -227,11 +387,29 @@ def show_traffic_and_accident(graph,street_passage,accident_positions):
     plt.title('Accident')
     plt.show()
 
-###
+
+# --------------------------------------------------------------------------------------------- #
     
 
-# Function showing connectivity analysis
-def connectivity_analysis(graph,city:str):
+
+def connectivity_analysis(city:str, city_radius = 2000):
+    '''Function showing connectivity analysis
+    Args:
+        city : str = name of the city
+ city_radius : int = radius of the city in meters
+
+    Returns: nothing
+    '''
+    # Create urban network from latitude and longitude
+    graph = ox.graph_from_point(cities[city], dist=city_radius, dist_type='bbox', network_type='drive_service', simplify = True)
+    graph = ox.project_graph(graph)
+    osmids = list(graph.nodes)
+    graph = nx.relabel.convert_node_labels_to_integers(graph)
+
+    # give each node its original osmid as attribute since we relabeled them
+    osmid_values = {k: v for k, v in zip(graph.nodes, osmids)}
+    nx.set_node_attributes(graph, osmid_values, "osmid")
+
     #connectivity analysis
     n_edges = graph.number_of_edges()
     n_nodes = graph.number_of_nodes()
@@ -257,14 +435,32 @@ def connectivity_analysis(graph,city:str):
     print("gamma index", gamma)
     #print("characteristic path length:", l_geo)
 
-###
+
+# --------------------------------------------------------------------------------------------- #
     
 
-# Function showing degree histogram
-def degree_histogram(graph,city:str):
+
+def degree_histogram(city:str, city_radius = 2000):
+    '''Function showing degree histogram
+    Args:
+        city : str = name of the city
+ city_radius : int = radius of the city in meters
+
+    Returns: nothing
+    '''
+    # Create urban network from latitude and longitude
+    graph = ox.graph_from_point(cities[city], dist=city_radius, dist_type='bbox', network_type='drive_service', simplify = True)
+    graph = ox.project_graph(graph)
+    osmids = list(graph.nodes)
+    graph = nx.relabel.convert_node_labels_to_integers(graph)
+
+    # give each node its original osmid as attribute since we relabeled them
+    osmid_values = {k: v for k, v in zip(graph.nodes, osmids)}
+    nx.set_node_attributes(graph, osmid_values, "osmid")
+
     degree_sequence = sorted((d for n, d in graph.degree()), reverse=True)
 
-    fig = plt.figure("Degree of a random graph", figsize=(15, 15))
+    fig = plt.figure("Degree histogram", figsize=(15, 15))
 
     axgrid = fig.add_gridspec(5, 4)
 
@@ -276,10 +472,19 @@ def degree_histogram(graph,city:str):
     ax2.set_xlabel("Degree")
     ax2.set_ylabel("# of Nodes")
 
-###
 
-# Function setting speed limit BEFORE zona30
+# --------------------------------------------------------------------------------------------- #
+    
+
 def città50(graph,show = True):
+    '''Function setting speed limit BEFORE zona30
+       It's not meant to be used on other cities than Bologna
+    Args:
+         graph : networkx.MultiDiGraph
+          show : bool
+
+      Returns: nothing
+    '''
     strade = []
     limiti = []
     i = 1
@@ -352,11 +557,23 @@ def città50(graph,show = True):
         plt.colorbar(sm, ax=ax,label='Edge Passage')
         plt.title('Roads more populated')
         plt.show() 
+    
 
-###
-        
-# Function showing animated speeds
+# --------------------------------------------------------------------------------------------- #
+    
+
 def animate_speeds(cars_velocities,max_velocity_per_frame,n_cars,speed_up,dt):
+    '''Function showing animated speeds
+       It's runned inside the simulation
+    Args:
+         cars_velocities : 2d array with shape (#frames,#cars) = contains the norm of the velocity of every car per every frame
+  max_velocity_per_frame : float 
+                  n_cars : int
+                speed_up : int = speed up factor from the simulation
+                      dt : int = dt interval from the simulation
+            
+      Return: nothing
+    '''
     # Create a figure and axis for plotting
     fig, ax = plt.subplots()
 
@@ -373,7 +590,7 @@ def animate_speeds(cars_velocities,max_velocity_per_frame,n_cars,speed_up,dt):
         hist, _ = np.histogram(cars_velocities[frame], bins=n_bins)
         ax.bar(range(n_bins), hist)
         ax.set_title('Speed')
-        ax.set_xlabel('Km/h')
+        ax.set_xlabel('$\\frac{Km}{h}$')
         ax.set_ylabel('Frequency')
 
         mean = np.mean(cars_velocities[frame])
@@ -386,10 +603,22 @@ def animate_speeds(cars_velocities,max_velocity_per_frame,n_cars,speed_up,dt):
 
     plt.show()
 
-###
+
+# --------------------------------------------------------------------------------------------- #
     
-# Function showing animated accelerations
+    
 def animate_accelerations(cars_accelerations,max_accel_per_frame,n_cars,speed_up,dt):
+    '''Function showing animated accelerations
+       It's runned inside the simulation
+    Args:
+         cars_accelerations : 2d array with shape (#frames,#cars) = contains the norm of the acceleration of every car per every frame
+        max_accel_per_frame : float 
+                  n_cars : int
+                speed_up : int = speed up factor from the simulation
+                      dt : int = dt interval from the simulation
+            
+      Return: nothing
+    '''
     # Create a figure and axis for plotting
     fig, ax = plt.subplots()
 
@@ -406,7 +635,7 @@ def animate_accelerations(cars_accelerations,max_accel_per_frame,n_cars,speed_up
         hist, _ = np.histogram(cars_accelerations[frame], bins=n_bins)
         ax.bar(range(n_bins), hist)
         ax.set_title('Accelerations')
-        ax.set_xlabel('$\\frac{Km}{h \cdot s}$')
+        ax.set_xlabel('$\\frac{Km}{h \\cdot s}$')
         ax.set_ylabel('Frequency')
 
         mean = np.mean(cars_accelerations[frame])
@@ -416,5 +645,38 @@ def animate_accelerations(cars_accelerations,max_accel_per_frame,n_cars,speed_up
     # Create the animation
     ani = FuncAnimation(fig, update, frames=np.shape(cars_accelerations)[0])
     display(HTML(ani.to_jshtml()))
+
+    plt.show()
+
+
+# --------------------------------------------------------------------------------------------- #
+    
+    
+def show_travelling_times(travelling_times):
+    '''Function showing travelling times
+       It's runned inside the simulation
+    Args:
+        travelling_times : list = contains all the travelling times computed within the simulation
+
+      Returns: nothing
+    '''
+    travelling_times = np.array(travelling_times)
+    # Create a figure and axis for plotting
+    fig, ax = plt.subplots()
+
+    # Define the initial histogram
+    n_bins = int(max(travelling_times/60))
+    hist, _ = np.histogram(travelling_times/60, bins=n_bins)
+    bars = ax.bar(range(n_bins), hist)
+
+    ax.set_title('Travelling times')
+    ax.set_xlabel('Minutes')
+    ax.set_ylabel('Frequency')
+
+    mean_travelling_time = sum(travelling_times)/len(travelling_times)
+    mode = st.mode(travelling_times)
+
+    plt.text(0.95, 0.95, f"Mean: {int(mean_travelling_time/60)}m {(mean_travelling_time/60 - int(mean_travelling_time/60))*60:.2f}s\n Mode: {int(mode/60)}m {(mode/60 - int(mode/60))*60:.2f}s\n", 
+            horizontalalignment='right', verticalalignment='top', transform=plt.gca().transAxes)
 
     plt.show()

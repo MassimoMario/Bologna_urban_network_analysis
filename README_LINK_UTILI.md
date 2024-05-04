@@ -2,6 +2,8 @@ Ciao amiki
 
 LINK UTILI:
 
+https://webspace.maths.qmul.ac.uk/v.latora/porta_primal_705_epb06.pdf
+
 https://www.mdpi.com/2220-9964/6/10/295
 
 https://www.cittametropolitana.bo.it/statistica/Osservatorio_incidenti_stradali/Mappa

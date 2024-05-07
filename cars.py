@@ -7,8 +7,11 @@ import random
 from tqdm import tqdm
 
 class Cars():
+    '''
+    When initialized, Cars contains all the information of an ensamble of N cars.
+    Positions and velocities are updated in the update function.
+    '''
     def __init__(self,n_cars):
-        self.journey = np.zeros((n_cars,2))
         self.road = []
         self.positions = np.zeros((n_cars,2))
         self.velocities = np.zeros((n_cars,2))
@@ -176,7 +179,7 @@ class Cars():
             a_i = np.linalg.norm(self.accel[car_i])
             diff_velocities = np.linalg.norm(self.velocities[car_i] - self.velocities[n])
 
-            if n!=car_i and dist <= 10*self.turn_range[car_i]: # and a_i >= 4*size*self.speed_up/(2*radius) A THRESHOLD CAMBIALO
+            if n!=car_i and dist <= 3*self.turn_range[car_i]: 
                 diff_angles = np.abs(self.get_velocity_angle(n) - self.get_velocity_angle(car_i))
                 if diff_angles <= 180 and diff_angles >= 20:
                     r = np.random.uniform(0,1)
@@ -215,6 +218,7 @@ closeness_centrality : list = closeness centrality values used to compute initia
         probability_distribution = degree_values / np.sum(degree_values)
         inverse_probability_distribution = inverse_degree_values/np.sum(inverse_degree_values)
 
+        # Choose initial and final node with respect to closeness centrality
         start = np.random.choice(nodes_list, p=inverse_probability_distribution)
             
         while start not in graph.nodes:
@@ -229,7 +233,7 @@ closeness_centrality : list = closeness centrality values used to compute initia
 
         target = np.random.choice(nodes_list, p=probability_distribution)
 
-        while target not in graph.nodes or target == start:
+        while target == start:
             target = np.random.choice(nodes_list, p=probability_distribution)
     
 
@@ -238,10 +242,8 @@ closeness_centrality : list = closeness centrality values used to compute initia
 
         while road is None:
             start = np.random.choice(nodes_list, p=inverse_probability_distribution)
-            while start not in graph.nodes:
-                start = np.random.choice(nodes_list, p=inverse_probability_distribution)
             target = np.random.choice(nodes_list, p=probability_distribution)
-            while target not in graph.nodes or target == start:
+            while target == start:
                 target = np.random.choice(nodes_list, p=probability_distribution)
             road = ox.shortest_path(graph,start,target,weight='travelling_time')
             
@@ -254,11 +256,10 @@ closeness_centrality : list = closeness centrality values used to compute initia
             edge_passage.append((road[l],road[l+1]))
             edge_counts.append(1)
         
-        #graph = ox.graph_from_gdfs(nodes,edges) #CONTROLLA E CORREGGI QUESTA PARTE MOLTO IMPORTANTE
-            
+        # Initializing the path of i_th car
         self.road[car_i] = road
-        self.journey[car_i] = (start , target)
 
+        # Initializing initial position and velocity taking into account first node direction and speed limit of the initial street
         node_direction = np.array([nodes['x'][road[1]] - nodes['x'][road[0]] , nodes['y'][road[1]] - nodes['y'][road[0]]])
         node_direction /= np.linalg.norm(node_direction)
 
@@ -268,17 +269,9 @@ closeness_centrality : list = closeness centrality values used to compute initia
         v = random.uniform(self.max_speed[car_i]/4 , self.max_speed[car_i])
         self.velocities[car_i] = v*node_direction
 
+        # Computing turn range
         self.turn_range[car_i] = v*dt
-        
 
-    def road_length(self,road,edges):
-        if road is None:
-            return 0
-        edge_series = edges['length']
-        length = 0
-        for i in range(len(road)-1):
-            length += edge_series[road[i]][road[i+1]][0]
-            return length
         
 
     def set_initial_condition(self,graph,size,radius,speed_up,dt,edge_passage,edge_counts,nodes,edges,closeness_centrality):
@@ -301,6 +294,7 @@ closeness_centrality : list = closeness centrality values used to compute initia
         self.speed_up = speed_up
 
         for i in tqdm(range(self.n_cars)):
+
             # Convert degree centrality dictionary to an array
             nodes_list = list(closeness_centrality.keys())
             degree_values = np.array(list(closeness_centrality.values()))
@@ -310,15 +304,12 @@ closeness_centrality : list = closeness centrality values used to compute initia
             probability_distribution = degree_values / np.sum(degree_values)
             inverse_probability_distribution = inverse_degree_values/np.sum(inverse_degree_values)
 
+            # Choose initial and final node with respect to closeness centrality
             start = np.random.choice(nodes_list, p=inverse_probability_distribution)
-            
-            while start not in graph.nodes:
-                start = np.random.choice(nodes_list, p=inverse_probability_distribution)
-
 
             target = np.random.choice(nodes_list, p=probability_distribution)
 
-            while target not in graph.nodes or target == start:
+            while target == start:
                 target = np.random.choice(nodes_list, p=probability_distribution)
         
 
@@ -327,10 +318,8 @@ closeness_centrality : list = closeness centrality values used to compute initia
 
             while road is None:
                 start = np.random.choice(nodes_list, p=inverse_probability_distribution)
-                while start not in graph.nodes:
-                    start = np.random.choice(nodes_list, p=inverse_probability_distribution)
                 target = np.random.choice(nodes_list, p=probability_distribution)
-                while target not in graph.nodes or target == start:
+                while target == start:
                     target = np.random.choice(nodes_list, p=probability_distribution)
                 road = ox.shortest_path(graph,start,target,weight='travelling_time')
                 
@@ -343,11 +332,10 @@ closeness_centrality : list = closeness centrality values used to compute initia
                 edge_passage.append((road[l],road[l+1]))
                 edge_counts.append(1)
                 
-            #graph = ox.graph_from_gdfs(nodes,edges) #CONTROLLA E CORREGGI QUESTA PARTE MOLTO IMPORTANTE
-                
+            # Initializing the path of i_th car
             self.road.append(road)
-            self.journey[i] = (start , target)
 
+            # Initializing initial position and velocity taking into account first node direction and speed limit of the initial street
             node_direction = np.array([nodes['x'][road[1]] - nodes['x'][road[0]] , nodes['y'][road[1]] - nodes['y'][road[0]]])
             node_direction /= np.linalg.norm(node_direction)
 
@@ -357,6 +345,7 @@ closeness_centrality : list = closeness centrality values used to compute initia
             v = random.uniform(self.max_speed[i]/4 , self.max_speed[i])
             self.velocities[i] = v*node_direction
 
+            # Computing turn range
             self.turn_range[i] = v*dt
 
 
@@ -381,10 +370,6 @@ closeness_centrality : list = closeness centrality values used to compute initia
        Returns: nothing
         '''
 
-        #nodes, _ = ox.graph_to_gdfs(graph, nodes=True, edges=True)
-        #nodes['x'] = ((nodes['x'] - min(nodes['x']))/(max(nodes['x'])-min(nodes['x'])))*size
-        #nodes['y'] = ((nodes['y']-min(nodes['y']))/(max(nodes['y']) - min(nodes['y'])))*size
-
         for i in range(self.n_cars):
             road = self.road[i]
             v_abs = np.linalg.norm(self.velocities[i])
@@ -397,33 +382,21 @@ closeness_centrality : list = closeness centrality values used to compute initia
                 self.travelling_time[i][0] = (n_frame * dt * speed_up) - self.travelling_time[i][1]
                 self.travelling_time[i][1] = n_frame * dt * speed_up
                 travelling_times.append(self.travelling_time[i][0])
-                #self.velocities[i] = (0.0001,0.0001)
-                #self.positions[i] = (-1,-1)
                 continue
             
 
             #ACCELERAZIONI PER I NODI, GUARDA BENE E CAMBIA COSE 
             if np.linalg.norm(self.positions[i]-np.array([(nodes['x'][road[self.position_along_path[i]+1]]) , nodes['y'][road[self.position_along_path[i]+1]]])) <= 2*self.turn_range[i]:
-                #self.accel[i] = (0,0)
                 self.accel[i] = -self.velocities[i]/7
-                #self.velocities[i] += self.accel[i]*dt
             elif np.linalg.norm(self.positions[i]-np.array([(nodes['x'][road[self.position_along_path[i]+1]]) , nodes['y'][road[self.position_along_path[i]+1]]])) >= 2*self.turn_range[i]:
                 self.accel[i] = self.velocities[i]/5
-                #self.velocities[i] += self.accel[i]*dt
                 
-            #another_car , dist = self.another_car_is_near(i)
             #DECELERAZIONI SE VEDE MACCHINE, ATTENZIONE A QUEL +=
             if self.another_car_is_near(i)[0]:
                 self.accel[i] -= self.velocities[i]/5
-                #self.accel[i] -= self.velocities[i]/self.another_car_is_near(i)[1]
-                #self.velocities[i] += self.accel[i]*dt
             else:
                 if v_abs <= 0.1*self.max_speed[i]:
-                    #self.accel[i] = self.max_speed[i]*self.velocities[i]/(4*v_abs)
-                    #self.velocities[i] += self.accel[i]*dt
                     self.accel[i] += (self.max_speed[i]-v_abs)*self.velocities[i]/v_abs
-                    #self.accel[i] += (self.max_speed[i]-v_abs)*self.velocities[i]/(0.1*self.max_speed[i])
-                    #self.accel[i] += self.max_speed[i]*self.velocities[i]/5
 
                     
             v = np.linalg.norm(self.velocities[i])
@@ -432,7 +405,6 @@ closeness_centrality : list = closeness centrality values used to compute initia
             #ACCIDENTS
             if self.accident(i,size,radius):
                 self.accidents += 1   
-                #self.velocities[i] = (0.0,0.0)
                 accident_position.append((road[self.position_along_path[i]],road[self.position_along_path[i]+1]))
                 self.start_another_journey(i,graph,size,radius,edge_passage,edge_counts,nodes,edges,dt,closeness_centrality)
                 self.position_along_path[i] = 0
@@ -456,17 +428,11 @@ closeness_centrality : list = closeness centrality values used to compute initia
             v_abs = np.linalg.norm(self.velocities[i])
             if v_abs >= self.max_speed[i]:
                 self.accel[i] -= (v_abs - self.max_speed[i])*self.velocities[i]/v_abs
-                #self.velocities[i] += self.accel[i]*dt
                 v = np.linalg.norm(self.velocities[i])
                 self.turn_range[i] = v*dt
 
-            '''if v_abs <= 0.05*self.max_speed[i]:
-                #print(f'D: {self.accel[i]},{self.velocities[i]}')
-                node_direction = np.array([nodes['x'][road[self.position_along_path[i]+1]]- self.positions[i][0] , nodes['y'][road[self.position_along_path[i]+1]] - self.positions[i][1]])
-                node_direction /= np.linalg.norm(node_direction)
-                self.accel[i] = self.max_speed[i]*node_direction'''
 
-            #update positions
+            #update positions and velocities
             self.velocities[i] += self.accel[i]*dt
             v = np.linalg.norm(self.velocities[i])
             self.turn_range[i] = v*dt

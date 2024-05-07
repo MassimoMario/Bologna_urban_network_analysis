@@ -8,7 +8,7 @@ from matplotlib.animation import FuncAnimation
 from IPython.display import display, HTML
 from tqdm import tqdm
 from cars import Cars
-import utilities as ut
+import utils as ut
 
 
 def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, size, scale = 0.3, dt = 0.05, n_frame = 300, animate = True):
@@ -17,9 +17,9 @@ def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, si
                graph : networkx.MultiDiGraph
               n_cars : int = number of cars to simulate
               radius : int = radius of the city in meters, it must be the same used for initializing graph
-            speed_up : int = speed_up factor making simulation faster than reality 
+            speed_up : int = speed up factor making simulation faster than reality 
 closeness_centrality : list = list of closeness centrality values used fot predict initial and final node of a car path
-                size : int = refers to maximum value of animation image boundaries. Needs to be converted in meters using Bologna diameter
+                size : int = refers to maximum value of animation image boundaries. It will be converted in meters using Bologna diameter
                scale : float = refers to scale of arrows dimension within the animation
                   dt : float = time interval with which the simulation is computed
             n_frames : int = number of frames of the simulation
@@ -89,14 +89,16 @@ closeness_centrality : list = list of closeness centrality values used fot predi
     
     mean_travelling_time = sum(travelling_times)/len(travelling_times)
 
+    total_time = n_frame*dt*speed_up
     print('Simulation done: \n')
-    print(f"\nVelocity respect to real life is {speed_up} times faster \n")
+    print(f'\nSimulated time: {int(total_time/60)} m {(total_time/60 - int(total_time/60))*60:.2f}s')
+    print(f"Velocity respect to real life is {speed_up} times faster \n")
     print(f"Number of accidents: {cars.number_of_accidents()}\n")
-    print(f'Mean speed: {mean_speed:.2f} Km/h\n')
-    print(f'Mean acceleration: {mean_accel:.2f}Km/h/s\n')
-    print(f'Min accel: {min(min_accel_per_frame)}Km/h/s, Max accel: {max(max_accel_per_frame):.2f}Km/h/s\n')
-    print(f'Mean travelling time: {int(mean_travelling_time/60)}m {round((mean_travelling_time/60 - int(mean_travelling_time/60))*60,2)}s\n')
-    #nodes, edges = ox.graph_to_gdfs(traffic_graph, nodes=True, edges=True)
+    print(f'Mean speed: {mean_speed:.2f} km/h \n')
+    print(f'Mean acceleration: {mean_accel:.2f} Km/h/s\n')
+    print(f'Max acceleration: {max(max_accel_per_frame):.2f} Km/h/s\n')
+    print(f'Mean travelling time: {int(mean_travelling_time/60)} m {(mean_travelling_time/60 - int(mean_travelling_time/60))*60:.2f} s\n')
+    
     street_passage = [(x[0],x[1],y) for x,y in zip(edges_passage,edge_counts)]
 
     ut.show_travelling_times(travelling_times)
@@ -104,7 +106,7 @@ closeness_centrality : list = list of closeness centrality values used fot predi
     if animate:
         fig, ax = plt.subplots(figsize=(7,7))
 
-        for N in range(len(graph.nodes)):
+        for N in graph.nodes:
             circle = plt.Circle((nodes['x'][N] , nodes['y'][N]) , size/900, color = 'grey')
             ax.add_patch(circle)
         
@@ -143,4 +145,4 @@ closeness_centrality : list = list of closeness centrality values used fot predi
         print('Animate accelerations . . .\n')
         ut.animate_accelerations(cars_accelerations,max_accel_per_frame,n_cars,speed_up,dt)
 
-    return cars_velocities , cars_accelerations, max_accel_per_frame, max_velocity_per_frame, mean_speed, mean_accel, travelling_times, mean_travelling_time, street_passage,accident_positions
+    return street_passage,accident_positions

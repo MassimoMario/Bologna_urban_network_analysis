@@ -22,7 +22,7 @@ All the computations are presented as a jupyter notebook written in *Python*.
 To get started, you can clone the repository using the following command:
 
 ```bash
-git clone https://github.com/ilmariuolo/Bologna_urban_network_analysis
+git clone https://github.com/ilmariuolo/Bologna_urban_network_analysis.git
 ```
 
 Then make sure to have Networkx and OSMnx installed:

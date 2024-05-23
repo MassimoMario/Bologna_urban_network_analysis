@@ -19,7 +19,18 @@ All the computations are presented as a jupyter notebook written in *Python*.
 * [`strade30.txt`](strade30.txt) is a list of Bologna streets used in the `città50` function to set Città50 speed limits
 
 # Usage
-First, make sure to have Networkx and OSMnx installed.
+To get started, you can clone the repository using the following command:
+
+```bash
+git clone https://github.com/ilmariuolo/Bologna_urban_network_analysis
+```
+
+Then make sure to have Networkx and OSMnx installed:
+
+```bash
+pip install networkx
+```
+
 Please note that you may be able to install OSMnx with `pip` but this is not officially supported, read instead their documentation on [how to install OSMnx](https://osmnx.readthedocs.io/en/stable/installation.html).
 
 Our analysis are shown in two jupyter notebooks, [`urban_network_analysis.ipynb`](urban_network_analysis.ipynb) and [`city_traffic_simulation.ipynb`](city_traffic_simulation.ipynb). Run the codes with the default settings or change them according to the notes within the notebooks.

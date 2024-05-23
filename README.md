@@ -10,7 +10,15 @@ All the computations are presented as a jupyter notebook written in python.
 * Networkx
 * [OSMnx](https://geoffboeing.com/publications/osmnx-complex-street-networks/)
 
-# Use
+# Structure 
+* [urban_network_analysis.ipynb](urban_network_analysis.ipynb) is a notebook showing connectivity and centrality analysis of a chosen city
+* [city_traffic_simulation.ipynb](city_traffic_simulation.ipynb) is the main notebook computing traffic simulation within a chosen city, with statistics and animations
+* [utils.py](utils.py) contains all the functions used in [urban_network_analysis.ipynb](urban_network_analysis.ipynb) and some other function helpful for the simulation
+* [cars.py](cars.py) defines the class 'Cars', containing informations of N cars, used inside the simulation
+* [simulation.py](simulation.py) contains only the traffic simulation function
+* [strade30.txt](strade30.txt) is a list of Bologna streets used in the 'città50' function to set those specific speed limits
+
+# Usage
 First, make sure to have Networkx and OSMnx installed.
 Please note that you may be able to install OSMnx with `pip` but this is not officially supported, read instead their documentation on [how to install OSMnx](https://osmnx.readthedocs.io/en/stable/installation.html).
 

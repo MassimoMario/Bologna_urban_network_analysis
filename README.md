@@ -1,9 +1,9 @@
 # Bologna Urban Network Analysis
-Implementation of a Bologna urban street network analysis using complex network algorithms, with the comparison of traffic and accident data from _Comune di Bologna_ with a simulation.
+Implementation of a Bologna urban street network analysis using complex network algorithms, with a comparison between real traffic and accident data from _Comune di Bologna_ and our traffic simulation.
 
 For a detalied description see the report *BLA BLA BLA*.
 
-All the computations are presented as a jupyter notebook written in python.
+All the computations are presented as a jupyter notebook written in *Python*.
 
 # Requirements
 * Standard python libraries (numpy, matplotlib, tqdm, random, statistics)

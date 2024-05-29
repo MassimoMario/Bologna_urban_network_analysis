@@ -207,7 +207,7 @@ class Cars():
                   dt : float = time interval used in the simulation
 closeness_centrality : list = closeness centrality values used to compute initial and final node of a path
      
-       Returns: nothing
+       Returns: None
         '''
         # Convert degree centrality dictionary to an array
         nodes_list = list(closeness_centrality.keys())
@@ -288,7 +288,7 @@ closeness_centrality : list = closeness centrality values used to compute initia
                edges : GeoDataFrame = contains graph edges informations
 closeness_centrality : list = closeness centrality values used to compute initial and final node of a path
      
-       Returns: nothing
+       Returns: None
         '''
         #self.max_speed = max_speed
         self.speed_up = speed_up
@@ -367,7 +367,7 @@ closeness_centrality : list = closeness centrality values used to compute initia
     travelling_times : list = list of travelling times values, updated every time a car reaches its target node
 closeness_centrality : list = closeness centrality values used to compute initial and final node of a path
      
-       Returns: nothing
+       Returns: None
         '''
 
         for i in range(self.n_cars):

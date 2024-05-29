@@ -35,7 +35,7 @@ def clean_graph_data(graph):
     Args:
           graph : networkx.MultiDiGraph 
           
-    Returns: nothing
+    Returns: None
     '''
     
     for _,_,data in graph.edges(data=True):
@@ -109,7 +109,7 @@ def centrality_analysis(city : str, city_radius = 3900):
           city : str = name of the city
    city_radius : int = radius of the city in meters
 
-    Returns: nothing
+    Returns: None
     '''
 
     # Create urban network from latitude and longitude
@@ -277,7 +277,7 @@ def vulnerability(city:str,city_radius = 1100):
           city : str = name of the city
    city_radius : int = radius of the city in meters
 
-       Returns: nothing
+       Returns: None
     '''
 
     # Create urban network from latitude and longitude
@@ -327,7 +327,7 @@ def set_max_speed_all(graph,max_speed : int):
         graph : networkx.MultiDiGraph
     max_speed : int = max speed to set in every streets in km/h
      
-    Returns: nothing
+    Returns: None
     '''
     for _,_,data in graph.edges(data=True):
         data['maxspeed'] = max_speed
@@ -345,7 +345,7 @@ def set_max_speed(graph,street_names, max_speed : int):
      street_names : list = array of strings with streets names
         max_speed : int = max speed to set in those streets in Km/h
 
-    Returns: nothing
+    Returns: None
     '''
     for _,_,data in graph.edges(data=True):
         if 'name' in data:
@@ -366,7 +366,7 @@ def remove_edges(graph,street_names):
         graph : networkx.MultiDiGraph
  street_names : list = list of streets to be removed from the urban network
     
-    Returns : nothing
+    Returns : None
     '''
     edges_to_be_removed = []
     for u,v,data in graph.edges(data=True):
@@ -390,7 +390,7 @@ def show_traffic_and_accident(graph,street_passage,accident_positions):
     street_passage : 3d array = 3d array with initial node, final node, number of times that edge has been traveled
 accident_positions : 2d array = 2d array with [initial node,final node] denoting the edge where the accident occurs
 
-    Returns: nothing
+    Returns: None
     '''
     nodes,edges = ox.graph_to_gdfs(graph,nodes=True,edges=True)
 
@@ -466,7 +466,7 @@ def connectivity_analysis(city:str, city_radius = 4000, average_path_length=True
          city_radius : int = radius of the city in meters
  average_path_length : bool = if True the function shows the computation of the average path length
 
-    Returns: nothing
+    Returns: None
     '''
     # Create urban network from latitude and longitude
     graph = ox.graph_from_point(cities[city], dist=city_radius, dist_type='bbox', network_type='drive_service', simplify = True)
@@ -524,7 +524,7 @@ def degree_histogram(city:str, city_radius = 4000):
         city : str = name of the city
  city_radius : int = radius of the city in meters
 
-    Returns: nothing
+    Returns: None
     '''
     # Create urban network from latitude and longitude
     graph = ox.graph_from_point(cities[city], dist=city_radius, dist_type='bbox', network_type='drive_service', simplify = True)
@@ -572,7 +572,7 @@ def show_speed_limits(graph):
     Args:
          graph : networkx.MultiDiGraph
 
-      Returns: nothing
+      Returns: None
     '''
     edge_values = np.array([data['maxspeed'] for u, v, key, data in graph.edges(keys=True, data=True) if 'maxspeed' in data])
     norm_edge_values = (edge_values - min(edge_values))/(max(edge_values - min(edge_values)))
@@ -606,7 +606,7 @@ def città50(graph,show = True):
          graph : networkx.MultiDiGraph
           show : bool
 
-      Returns: nothing
+      Returns: None
     '''
     strade = []
     limiti = []
@@ -695,7 +695,7 @@ def animate_speeds(cars_velocities,max_velocity_per_frame,n_cars,speed_up,dt):
                 speed_up : int = speed up factor from the simulation
                       dt : int = dt interval from the simulation
             
-      Return: nothing
+      Return: None
     '''
     # Create a figure and axis for plotting
     fig, ax = plt.subplots()
@@ -740,7 +740,7 @@ def animate_accelerations(cars_accelerations,max_accel_per_frame,n_cars,speed_up
                 speed_up : int = speed up factor from the simulation
                       dt : int = dt interval from the simulation
             
-      Return: nothing
+      Return: None
     '''
     # Create a figure and axis for plotting
     fig, ax = plt.subplots()
@@ -781,7 +781,7 @@ def show_travelling_times(travelling_times):
     Args:
         travelling_times : list = contains all the travelling times computed within the simulation
 
-      Returns: nothing
+      Returns: None
     '''
     travelling_times = np.array(travelling_times)
     # Create a figure and axis for plotting

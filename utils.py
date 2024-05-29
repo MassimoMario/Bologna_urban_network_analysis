@@ -89,9 +89,11 @@ def set_road_network(city:str, city_radius = 3900):
 
     #G.remove_node(9)
     #G.remove_node(11)
-    fig, ax = ox.plot.plot_graph(graph, bgcolor='black',node_size=5, node_color='white', show=False)
+    fig, ax = plt.subplots(figsize=(10,10))
+    ax.set_facecolor('black')
+    ox.plot.plot_graph(graph, ax, bgcolor='black',node_size=3, node_color='white', edge_linewidth=0.5,show=False)
     plt.axis('on')
-    plt.title(city + ' road network',color='white')
+    plt.title(city + ' road network')
     plt.show()
 
     return graph , city_radius
@@ -122,6 +124,7 @@ def centrality_analysis(city : str, city_radius = 3900):
 
     fig, axs = plt.subplots(2, 2, figsize=(13,13))
 
+    print('\n Computing Centralities analysis . . . \n')
     # compute degree centrality
     degree_centrality = nx.degree_centrality(graph)
 
@@ -251,18 +254,16 @@ def global_efficiency(graph):
     Returns:
          global_efficiency : float
     '''
-    nodes, edges = ox.graph_to_gdfs(graph, nodes=True, edges=True)
+
     efficiency = 0
-    efficiency_euclid = 0
-    N = len(graph.nodes)
-    for i in range(N):
-        for j in range(N):
-            if i!=j:
-                if graph.has_edge(i,j):
+    N = graph.number_of_nodes()
+
+    for i in tqdm(graph.nodes):
+        for j in graph.nodes:
+            if i>j:
+                if nx.has_path(graph,i,j):
                     d_ij = nx.shortest_path_length(graph, i, j, weight='length')
                     efficiency += 1 / d_ij
-                    #euclid_distance = (2*np.pi*6371000*ox.distance.euclidean(nodes['lat'][i],nodes['lon'][i],nodes['lat'][j],nodes['lon'][j]))/360
-                    #efficiency_euclid += 1 / euclid_distance
                     global_efficiency = efficiency/(N*(N-1))
     return global_efficiency
 
@@ -270,7 +271,7 @@ def global_efficiency(graph):
 # --------------------------------------------------------------------------------------------- #
 
 
-def vulnerability(city:str,city_radius = 2000):
+def vulnerability(city:str,city_radius = 1100):
     '''Function computing vulnerability factor, derived from global efficiency and information centrality
     Args:
           city : str = name of the city
@@ -299,8 +300,15 @@ def vulnerability(city:str,city_radius = 2000):
     ec = np.array([graph.edges[edge]['color'] for edge in graph.edges])
     ox.plot_graph(graph, bgcolor='white',node_size=3, edge_color=ec, node_color='black', show=False)
 
+    N1 = graph.number_of_nodes()
+
+    print('Computing global efficiency . . .\n')
     c1 = global_efficiency(graph)
+
     remove_edges(graph,ztl[city])
+
+    N2 = graph.number_of_nodes()
+    print(f'\nComputing global efficiency after removing {N1-N2} nodes . . .\n')
     c2 = global_efficiency(graph)
 
     plt.axis('on')
@@ -343,6 +351,7 @@ def set_max_speed(graph,street_names, max_speed : int):
         if 'name' in data:
             if data['name'] in street_names:
                 data['maxspeed'] = max_speed
+
                 #set automatically the new travelling time
                 data['travelling_time'] = data['length']*3.6 / float(data['maxspeed'])
 
@@ -388,11 +397,7 @@ accident_positions : 2d array = 2d array with [initial node,final node] denoting
     for edge in street_passage:
         if (edge[0],edge[1]) in graph.edges():
             edges.loc[(edge[0],edge[1]),'passage'][0] += edge[2]
-        #edges.loc[(edge[0],edge[1]),'passage'][0] += 1
 
-    '''for edge in accident_positions:
-        if edge in graph.edges():
-            edges.loc[edge,'accident'][0] += 1'''
     
     for edge in accident_positions:
         if edge[1] in graph.nodes():
@@ -420,37 +425,16 @@ accident_positions : 2d array = 2d array with [initial node,final node] denoting
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
     plt.colorbar(sm, ax=ax,label='Edge Passage')
-    #plt.title('Roads more populated')
+    plt.title('Roads more populated')
     plt.show()
 
     print(f'Number of accidents: {len(accident_positions)}')
-    '''# Get edge passages
-    edge_values = np.array([data['accident'] for u, v, key, data in graph.edges(keys=True, data=True)])
-    norm_edge_values = (edge_values - min(edge_values))/(max(edge_values - min(edge_values)))
-
-    # Define a colormap
-    cmap = plt.cm.RdBu 
-
-    # Normalize edge lengths
-    norm = plt.Normalize(min(norm_edge_values), max(norm_edge_values))
-
-    # Map edge lengths to colors
-    colors = [cmap(norm(value)) for value in norm_edge_values]
-
-    #Plot the network with colored edges
-    fig , ax = ox.plot_graph(graph, edge_color=plt.cm.RdBu(norm_edge_values), node_size=0, bgcolor='black', edge_linewidth=0.5,show=False)
-
-    # Add colorbar
-    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    sm.set_array([])
-    plt.colorbar(sm, ax=ax,label='Accidents')
-    #plt.title('Accident')
-    plt.show()'''
 
     #Get edge passages
     edge_values = np.array([data['accident'] for u,data in graph.nodes(data=True)])
     norm_edge_values = (edge_values - min(edge_values))/(max(edge_values)-min(edge_values))
     norm_edge_values = edge_values/max(edge_values)
+    
     # Define a colormap
     cmap = plt.cm.RdBu 
 
@@ -467,7 +451,7 @@ accident_positions : 2d array = 2d array with [initial node,final node] denoting
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
     plt.colorbar(sm, ax=ax,label='Accidents')
-    #plt.title('Incidenti')
+    plt.title('Incidenti')
     plt.show()
 
 
@@ -475,11 +459,12 @@ accident_positions : 2d array = 2d array with [initial node,final node] denoting
     
 
 
-def connectivity_analysis(city:str, city_radius = 4000):
+def connectivity_analysis(city:str, city_radius = 4000, average_path_length=True):
     '''Function showing connectivity analysis
     Args:
-        city : str = name of the city
- city_radius : int = radius of the city in meters
+                city : str = name of the city
+         city_radius : int = radius of the city in meters
+ average_path_length : bool = if True the function shows the computation of the average path length
 
     Returns: nothing
     '''
@@ -506,22 +491,27 @@ def connectivity_analysis(city:str, city_radius = 4000):
     # gammaindex is a measure of the relation between the real number of edges and the number of all possible edges in a network
     gamma = n_edges/(3*(n_nodes-2))
 
-    #characteristic path length
-    cpl = 0
-    for i in range(n_nodes):
-        for j in range(n_nodes):
-            if i!=j:
-                if graph.has_edge(i,j):
-                    cpl += nx.shortest_path_length(graph, i, j, weight='length')/(n_nodes-1)
-
-    #print results
-    print(city + ' urban network connectivity analysis:\n')
+    # Average path length
+    if average_path_length:
+        apl = 0
+        print('Computing average path length . . .\n\n')
+        for i in tqdm(graph.nodes):
+            for j in graph.nodes:
+                if i>j:
+                    if nx.has_path(graph,i,j):
+                        #if nx.has_path(graph,i,j):
+                        #apl += nx.shortest_path_length(graph, i, j, weight='length')/(n_nodes*(n_nodes-1))
+                        apl += nx.shortest_path_length(graph, i, j, weight='length')
+        apl /= n_nodes*(n_nodes-1)
+    
+    print('\n'+ city + ' urban network connectivity analysis:\n')
     print('# Nodes: ', n_nodes)
     print('# Edges: ', n_edges)
-    print(f"Meshedness coefficient: {alpha:.2f}")
+    print(f"Alpha coefficient: {alpha:.2f}")
     print(f"Beta connectivity: {beta:.2f}")
     print(f"Gamma index: {gamma:.2f}")
-    print(f"Characteristic path length: {cpl:.0f} m")
+    if average_path_length:
+        print(f"Average path length: {apl:.0f} m")
 
 
 # --------------------------------------------------------------------------------------------- #
@@ -554,11 +544,12 @@ def degree_histogram(city:str, city_radius = 4000):
             continue
         dc[1][i] += dc[1][i-1]
 
-    fig = plt.figure(city + " degree histogram", figsize=(15, 15))
+    #fig = plt.figure(city + " degree histogram", figsize=(15, 15))
+    fig,ax2 = plt.subplots(figsize=(7,6))
+    plt.title(city + " degree histogram")
+    #axgrid = fig.add_gridspec(5, 4)
 
-    axgrid = fig.add_gridspec(5, 4)
-
-    ax2 = fig.add_subplot(axgrid[3:, 2:])
+    #ax2 = fig.add_subplot(axgrid[3:, 2:])
     ax2.bar(*np.unique(degree_sequence, return_counts=True),label='Frequency')
     ax2.set_title(city + " urban network degree histogram")
     ax2.set_xlabel("Degree")

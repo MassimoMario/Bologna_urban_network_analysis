@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 class Cars():
     '''
-    When initialized, Cars contains all the information of an ensamble of N cars.
+    When initialized, Cars class contains all the information of an ensamble of N cars.
     Positions and velocities are updated in the update function.
     '''
     def __init__(self,n_cars):

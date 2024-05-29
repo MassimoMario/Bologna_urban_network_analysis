@@ -13,7 +13,8 @@ import utils as ut
 
 def traffic_simulation(graph, n_cars, radius, speed_up, closeness_centrality, size, scale = 0.3, dt = 0.05, n_frame = 300, animate = True):
     
-    '''Args: 
+    '''Function showing traffic simulation and statistics animations
+    Args: 
                graph : networkx.MultiDiGraph
               n_cars : int = number of cars to simulate
               radius : int = radius of the city in meters, it must be the same used for initializing graph
@@ -49,7 +50,7 @@ closeness_centrality : list = list of closeness centrality values used fot predi
     c_accel = np.zeros((n_frame, n_cars, 2))
 
     print('Simulation: \n')
-    #for loop computing time steps for animation
+    
     for n in tqdm(range(n_frame)):
         c_positions[n] = cars.get_positions()
         c_velocities[n] = cars.get_velocities()
@@ -104,7 +105,7 @@ closeness_centrality : list = list of closeness centrality values used fot predi
     ut.show_travelling_times(travelling_times)
 
     if animate:
-        fig, ax = plt.subplots(figsize=(7,7))
+        fig, ax = plt.subplots(figsize=(6,6))
 
         for N in graph.nodes:
             circle = plt.Circle((nodes['x'][N] , nodes['y'][N]) , size/900, color = 'grey')

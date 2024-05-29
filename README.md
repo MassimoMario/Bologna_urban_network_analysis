@@ -11,9 +11,11 @@ All the computations are presented as a jupyter notebook written in *Python*.
 * [OSMnx](https://geoffboeing.com/publications/osmnx-complex-street-networks/)
 
 # Structure 
+* [`urban_network_analysis.py`](urban_network_analysis.py) is a python file showing connectivity and centrality analysis of Bologna
 * [`urban_network_analysis.ipynb`](urban_network_analysis.ipynb) is a notebook showing connectivity and centrality analysis of a chosen city
+* [`city_traffic_simulation.py`](city_traffic_simulation.py) is the main python file computing traffic simulation within Bologna, with statistics and animations
 * [`city_traffic_simulation.ipynb`](city_traffic_simulation.ipynb) is the main notebook computing traffic simulation within a chosen city, with statistics and animations
-* [`utils.py`](utils.py) contains all the functions used in [`urban_network_analysis.ipynb`](urban_network_analysis.ipynb) and some other function helpful for the simulation
+* [`utils.py`](utils.py) contains all the functions used in [`urban_network_analysis.py`](urban_network_analysis.py) and [`city_traffic_simulation.py`](city_traffic_simulation.py) 
 * [`cars.py`](cars.py) defines the class `Cars`, containing informations of N cars, used inside the simulation
 * [`simulation.py`](simulation.py) contains only the traffic simulation function
 * [`strade30.txt`](strade30.txt) is a list of Bologna streets used in the `città50` function to set Città50 speed limits
@@ -33,7 +35,14 @@ pip install networkx
 
 Please note that you may be able to install OSMnx with `pip` but this is not officially supported, read instead their documentation on [how to install OSMnx](https://osmnx.readthedocs.io/en/stable/installation.html).
 
-Our analysis are shown in two jupyter notebooks, [`urban_network_analysis.ipynb`](urban_network_analysis.ipynb) and [`city_traffic_simulation.ipynb`](city_traffic_simulation.ipynb). Run the codes with the default settings or change them according to the notes within the notebooks.
+Our analysis are shown in two Python files, [`urban_network_analysis.py`](urban_network_analysis.py) and [`city_traffic_simulation.py`](city_traffic_simulation.py). You can just run them:
+
+```bash
+python3 urban_network_analysis.py
+
+python3 city_traffic_simulation.py
+```
+or you can modify the city and the settings acting on the two notebooks according to the notes written inside.
 
 The first code will show a quantitative analysis of an urban street network properties, the city can be freely choosen between tens of cities. It shows first a connectivity analysis followed by a degree histogram and then different plot regarding four centrality measures (_Degree Centrality, Betweenness Centrality, Edge Betweenness Centrality, Closeness Centrality_). 
 

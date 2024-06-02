@@ -54,10 +54,10 @@ The second jupyter notebook contains the traffic simulation followed by quantita
 
 # Example images
 
-![Napoli centrality analysis](example_images/centrality_analysis_napoli.png)
+![Bologna centrality analysis](example_images/centrality_analysis_bologna.png)
 :--:
-*Resulting image of a centrality analysis on Naples.*
+*Resulting image of a centrality analysis on Bologna*
 
-![Napoli degree histogram](example_images/degree_histogram_napoli.png)
+![Bologna degree histogram](example_images/degree_histogram_bologna.png)
 :--:
-*Napoli degree histogram*
+*Bologna degree histogram*

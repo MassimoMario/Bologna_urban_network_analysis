@@ -12,7 +12,7 @@ import statistics as st
 
 # Latitudes and longitudes of 'Zona 30' cities except Minneapolis (all the italians except Bologna are in discussion)
 cities = {'Bologna' : (44.495555, 11.3428), 'Ferrara' : (44.835297, 11.619865), 'Modena' : (44.64582, 10.92572), 'Reggio Emilia' : (44.7, 10.633333), 
-          'Firenze' : (43.771389, 11.254167), 'Torino' : (45.079167, 7.676111), 'Napoli' : (40.833333, 14.25), 'Milano' : (45.466944, 9.19), 
+          'Firenze' : (43.771389, 11.254167), 'Torino' : (45.079167, 7.676111), 'Napoli' : (40.8476, 14.2518), 'Milano' : (45.466944, 9.19), 
           'Roma' : (41.893056, 12.482778), 'Bergamo' : (45.695, 9.67), 'Verona' : (45.438611, 10.992778), 'Lecce' : (40.352011, 18.169139), 
           'Padova' : (45.406389, 11.877778), 'Olbia' : (40.916667, 9.5), 'Pesaro' : (43.91015, 12.9133), 'Lecco' : (45.85334, 9.39048),
           'Nantes' : (47.218056, -1.552778), 'La Plata' : (-34.92125, -57.954333), 'Bilbao' : (43.266667, -2.933334),'Zurich' : (47.374444, 8.541111), 
@@ -23,7 +23,8 @@ cities = {'Bologna' : (44.495555, 11.3428), 'Ferrara' : (44.835297, 11.619865), 
 ztl = {'Bologna' : ['Via Francesco Rizzoli','Via Ugo Bassi',"Via dell'Indipendenza"],
        'Nantes' : ['Rue du Calvaire','Cours des Cinquante Otages','Cours Olivier de Clisson'],
        'Zurich' : ['Langstrasse'],
-       'Edinburgh' : ['Lothian Road','Cockburn Street','North Bridge',"St Mary's Street"]}
+       'Edinburgh' : ['Lothian Road','Cockburn Street','North Bridge',"St Mary's Street"],
+       'La Plata' : ['Diagonal 74']}
 
 # --------------------------------------------------------------------------------------------- #
 
@@ -124,16 +125,19 @@ def centrality_analysis(city : str, city_radius = 3900):
 
     fig, axs = plt.subplots(2, 2, figsize=(13,13))
 
-    print('\n Computing Centralities analysis . . . \n')
+    print('\n Computing Degree Centrality . . . \n')
     # compute degree centrality
     degree_centrality = nx.degree_centrality(graph)
 
+    print('\n Computing Edge Betweenness Centrality . . . \n')
     # compute edge betweness centrality
     edge_betweenness_centrality = nx.edge_betweenness_centrality(graph)
 
+    print('\n Computing Betweenness Centrality . . . \n')
     # compute betweness centrality
     betweenness_centrality = nx.betweenness_centrality(graph)
 
+    print('\n Computing Closeness Centrality . . . \n')
     # compute closeness centrality
     closeness_centrality = nx.closeness_centrality(graph)
 
@@ -156,7 +160,7 @@ def centrality_analysis(city : str, city_radius = 3900):
     cmap = 'viridis'
     values = [norm_dc_values , norm_ebc_values , norm_bc_values , norm_c_values]
     names = [city + ' degree centrality map',city + ' edge betweenness centrality map', city + ' betweenness centrality map',city + ' closeness centrality map']
-    map_names = ['Degree centrality',r'$C^{EBC}$',r'$C^{BC}$',r'$C^C$']
+    map_names = ['Degree centrality',r'$C^{EB}$',r'$C^{B}$',r'$C^C$']
     
     for i,values in enumerate(values):
         row = i // 2
@@ -199,7 +203,7 @@ def centrality_analysis(city : str, city_radius = 3900):
     plt.plot(bin_centers, hist_normalized*100, marker='o',markersize = 1, linestyle='-',linewidth = 1)
     plt.grid()
     plt.xscale('log')
-    plt.xlabel(r'$C^{EBC}$')
+    plt.xlabel(r'$C^{EB}$')
     plt.ylabel('Counts [%]')
     plt.title(city + ' edge betweenness centrality values distribution')
 
@@ -232,13 +236,16 @@ def centrality_analysis(city : str, city_radius = 3900):
     hist_normalized = hist / np.sum(hist)
     bin_centers = (bins[:-1] + bins[1:]) / 2
 
+    def percent_formatter2(x,pos):
+        return '{:.2f}%'.format(x)
+    
     # Plot points
-    plt.plot(bin_centers, hist_normalized*100, marker='o',linestyle='-')
+    plt.plot(bin_centers, hist_normalized*100, marker='o',markersize=1,linestyle='-')
     plt.grid()
     plt.xlabel(r'$C^{C}$')
     plt.ylabel('Counts [%]')
     plt.title(city + ' closeness centrality values distribution')
-    ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
+    ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter2))
     plt.show()
 
 
@@ -792,7 +799,7 @@ def show_travelling_times(travelling_times):
     hist, _ = np.histogram(travelling_times/60, bins=n_bins)
     bars = ax.bar(range(n_bins), hist)
 
-    ax.set_title('Travelling times')
+    ax.set_title('Travel times')
     ax.set_xlabel('Minutes')
     ax.set_ylabel('Frequency')
 

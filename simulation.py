@@ -97,8 +97,7 @@ closeness_centrality : list = list of closeness centrality values used fot predi
     print(f"Number of accidents: {cars.number_of_accidents()}\n")
     print(f'Mean speed: {mean_speed:.2f} km/h \n')
     print(f'Mean acceleration: {mean_accel:.2f} Km/h/s\n')
-    print(f'Max acceleration: {max(max_accel_per_frame):.2f} Km/h/s\n')
-    print(f'Mean travelling time: {int(mean_travelling_time/60)} m {(mean_travelling_time/60 - int(mean_travelling_time/60))*60:.2f} s\n')
+    print(f'Mean travel time: {int(mean_travelling_time/60)} m {(mean_travelling_time/60 - int(mean_travelling_time/60))*60:.2f} s\n')
     
     street_passage = [(x[0],x[1],y) for x,y in zip(edges_passage,edge_counts)]
 

@@ -552,7 +552,7 @@ def degree_histogram(city:str, city_radius = 4000):
         dc[1][i] += dc[1][i-1]
 
     #fig = plt.figure(city + " degree histogram", figsize=(15, 15))
-    fig,ax2 = plt.subplots(figsize=(7,6))
+    fig,ax2 = plt.subplots(figsize=(6,5))
     plt.title(city + " degree histogram")
     #axgrid = fig.add_gridspec(5, 4)
 

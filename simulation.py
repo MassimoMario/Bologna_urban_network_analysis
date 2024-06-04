@@ -45,6 +45,8 @@ closeness_centrality : list = list of closeness centrality values used fot predi
     print('Initialization done\n')
 
     n_cars = cars.get_n_cars()
+
+    # three array that will be used for the animation
     c_positions = np.zeros((n_frame, n_cars, 2))
     c_velocities = np.zeros((n_frame, n_cars, 2))
     c_accel = np.zeros((n_frame, n_cars, 2))
@@ -58,6 +60,7 @@ closeness_centrality : list = list of closeness centrality values used fot predi
         
         cars.set_acceleration_zero()
 
+        # updating cars velocities and positions in every frame
         cars.update(graph,size,radius,speed_up,dt,n,nodes,edges,edges_passage,edge_counts,accident_positions,travelling_times,closeness_centrality)
         
 
@@ -86,11 +89,14 @@ closeness_centrality : list = list of closeness centrality values used fot predi
         max_accel_per_frame[i] = max(cars_accelerations[i])
         min_accel_per_frame[i] = min(cars_accelerations[i])
 
+    # computing mean accelerations, travel time and total time simulated
     mean_accel = np.mean(mean_accel_per_frame)
     
     mean_travelling_time = sum(travelling_times)/len(travelling_times)
 
     total_time = n_frame*dt*speed_up
+
+    # printing statistics
     print('Simulation done: \n')
     print(f'\nSimulated time: {int(total_time/60)} m {(total_time/60 - int(total_time/60))*60:.2f}s')
     print(f"Velocity respect to real life is {speed_up} times faster \n")
@@ -99,10 +105,13 @@ closeness_centrality : list = list of closeness centrality values used fot predi
     print(f'Mean acceleration: {mean_accel:.2f} Km/h/s\n')
     print(f'Mean travel time: {int(mean_travelling_time/60)} m {(mean_travelling_time/60 - int(mean_travelling_time/60))*60:.2f} s\n')
     
+    #filling street_passage that will be used to show the most used streets
     street_passage = [(x[0],x[1],y) for x,y in zip(edges_passage,edge_counts)]
 
+    # showing travel times histogram
     ut.show_travelling_times(travelling_times)
 
+    # if animate is True an animation of the simulation is shown
     if animate:
         fig, ax = plt.subplots(figsize=(6,6))
 
@@ -113,7 +122,7 @@ closeness_centrality : list = list of closeness centrality values used fot predi
         
         velocities_magnitudes = np.linalg.norm(c_velocities[0], axis=1)
         velocities_normalized = c_velocities[0] / np.vstack([velocities_magnitudes, velocities_magnitudes]).T 
-        #velocities_normalized = c_velocities[0] * 0.5
+        
         scat = ax.quiver(c_positions[0][:,0], 
                         c_positions[0][:,1],
                         velocities_normalized[:,0],
@@ -135,14 +144,16 @@ closeness_centrality : list = list of closeness centrality values used fot predi
 
             return scat,
 
+        # function computing the animation
         ani = FuncAnimation(fig, update, frames=n_frame, blit=True)
         print("Video processing . . .\n")
         display(HTML(ani.to_jshtml()))
 
+        # showing speeds and accelerations animation
         print('Animating speeds . . .\n')
         ut.animate_speeds(cars_velocities,max_velocity_per_frame,n_cars,speed_up,dt)
 
         print('Animate accelerations . . .\n')
         ut.animate_accelerations(cars_accelerations,max_accel_per_frame,n_cars,speed_up,dt)
 
-    return street_passage,accident_positions
+    return street_passage, accident_positions

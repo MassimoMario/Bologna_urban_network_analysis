@@ -5,10 +5,10 @@ city_radius = 1000
 
 G, city_radius = set_road_network(city,city_radius)
 
-connectivity_analysis(city,city_radius=3900,average_path_length = False)
+connectivity_analysis(city,city_radius=4000,average_path_length = False)
 
-degree_histogram(city)
+degree_histogram(city, city_radius)
 
 vulnerability(city)
 
-centrality_analysis(city)
+centrality_analysis(city, city_radius)

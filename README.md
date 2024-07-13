@@ -53,6 +53,9 @@ The function `vulnerability` computes the vulnerability factor of the city after
 The second jupyter notebook contains the traffic simulation followed by quantitative statistics (_mean speed, mean acceleration, travelling times histogram, total time simulated_) and _three animations_ : cars flowing through the city, speeds through time and accelerations through time. It's designed to work well with Bologna since the report is focused on Bologna urban network traffic, but we recommend to run it with those cities adopting _km/h_ as speed unit of measure (the reason is that the function `clean_graph_data` is called to clean max speed graph data but it crashes with _mph_ speed limits since they would need a different cleaning).
 
 # Example images
+![Bologna città50 traffic simulation](example_images/traffico_simulato2_50.png)
+:--:
+*Resulting image of *città50* traffic simulation on Bologna*
 
 ![Bologna centrality analysis](example_images/centrality_analysis_bologna.png)
 :--:

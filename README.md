@@ -3,6 +3,13 @@ Implementation of a Bologna urban street network analysis using complex network 
 
 All the computations are presented as a jupyter notebook written in *Python*.
 
+# Table of Contents
+* [Requirements](Requirements)
+* [Structure](Structure)
+* [Usage](Usage)
+* [Results](Results)
+* [Example images](Example)
+
 # Requirements
 * Standard python libraries (numpy, matplotlib, tqdm, random, statistics)
 * Networkx
@@ -49,6 +56,19 @@ The function `vulnerability` computes the vulnerability factor of the city after
 
 
 The second jupyter notebook contains the traffic simulation followed by quantitative statistics (_mean speed, mean acceleration, travelling times histogram, total time simulated_) and _three animations_ : cars flowing through the city, speeds through time and accelerations through time. It's designed to work well with Bologna since the report is focused on Bologna urban network traffic, but we recommend to run it with those cities adopting _km/h_ as speed unit of measure (the reason is that the function `clean_graph_data` is called to clean max speed graph data but it crashes with _mph_ speed limits since they would need a different cleaning).
+
+# Results
+Table for comparing simulation results between _Città50_ and _Zona30_ speed limit:
+
+
+|| _Città50_ | _Zona30_ |
+|---|---|---|
+Mean travelling time | 13m 46s | 17m 13s |
+Median travelling time | 12m 40s | 15m 30s |
+Mean speed | 25.97 $\frac{km}{h}$ | 17.60 $\frac{km}{h}$ |
+Mean acceleration | 3.93 $\frac{km}{h \cdot s}$ | 2.74 $\frac{km}{h \cdot s}$ |
+\# Accidents | 962 | 400 |
+
 
 # Example images
 ![Bologna città50 traffic simulation](example_images/traffico_simulato2_50.png)

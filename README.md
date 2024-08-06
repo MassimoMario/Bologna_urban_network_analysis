@@ -8,7 +8,7 @@ All the computations are presented as a jupyter notebook written in *Python*.
 * [Structure](#Structure)
 * [Usage](#Usage)
 * [Results](#Results)
-* [Example images](#Example)
+* [Example images](#Examples)
 
 # Requirements
 * Standard python libraries (numpy, matplotlib, tqdm, random, statistics)
@@ -70,7 +70,9 @@ Mean acceleration | 3.93 $\frac{km}{h \cdot s}$ | 2.74 $\frac{km}{h \cdot s}$ |
 \# Accidents | 962 | 400 |
 
 
-# Example images
+# Examples
+Few example images:
+
 ![Bologna città50 traffic simulation](example_images/traffico_simulato2_50.png)
 :--:
 *Resulting image of *città50* traffic simulation on Bologna*

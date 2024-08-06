@@ -8,7 +8,7 @@ All the computations are presented as a jupyter notebook written in *Python*.
 * [Structure](#Structure)
 * [Usage](#Usage)
 * [Results](#Results)
-* [Example images](#Examples)
+* [Examples](#Examples)
 
 # Requirements
 * Standard python libraries (numpy, matplotlib, tqdm, random, statistics)
